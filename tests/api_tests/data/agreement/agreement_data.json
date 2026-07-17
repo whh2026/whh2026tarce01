@@ -1,0 +1,94 @@
+{
+  "test_001_agreement_create": {
+    "test_case_desc": "协议创建接口测试",
+    "test_case_data": {
+      "name": "测试协议001",
+      "description": "测试协议002",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "测试协议002"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_002_agreement_create_long_name": {
+    "test_case_desc": "协议创建接口测试-协议名称超过50个字符",
+    "test_case_data": {
+      "name": "这是一个真正超过50个字符的测试协议名称测试协议名称测试协议名称试协议名称测试试协议名称测试测试协议名称测试协议名称测试协议名称测试",
+      "description": "测试协议名称超过50个字符的情况",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "测试协议"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_003_agreement_create_long_description": {
+    "test_case_desc": "协议创建接口测试-协议描述超过50个字符",
+    "test_case_data": {
+      "name": "测试协议003",
+      "description": "这是一个真正超过50个字符的测试协议描述，用于测试协接口对接口对接口对接口对接口对议创建接口对长描述的处理能力，确保接口能够正确处理各种长度的协议描述",
+
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "测试协议003"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_004_agreement_create_long_title": {
+    "test_case_desc": "协议创建接口测试-协议标题超过50个字符",
+    "test_case_data": {
+      "name": "测试协议004",
+      "description": "测试协议标题超过50个字符的情况",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "这是一个真正超过50个字符的测试协议标题测试协测试协议测试协议测试协议测试协议测试协议测试协议议标题测试协议标题测试协议标题测试协议标题"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_005_agreement_create_empty_name": {
+    "test_case_desc": "协议创建接口测试-协议名称为空",
+    "test_case_data": {
+      "name": "",
+      "description": "测试协议名称为空的情况",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "测试协议005"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_006_agreement_create_empty_description": {
+    "test_case_desc": "协议创建接口测试-协议描述为空",
+    "test_case_data": {
+      "name": "测试协议006",
+      "description": "",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": "测试协议006"
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  },
+  "test_007_agreement_create_empty_title": {
+    "test_case_desc": "协议创建接口测试-协议标题为空",
+    "test_case_data": {
+      "name": "测试协议007",
+      "description": "测试协议标题为空的情况",
+      "content": [{
+        "text": "PHA+5rWL6K+V5Y2P6K6uMDAxPC9wPg==",
+        "title": ""
+      }],
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00",
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246"
+    }
+  }
+}

@@ -1,0 +1,2582 @@
+{
+  "document_title": "数据产品市场应用服务组件接口文档",
+  "basic_info": {
+    "compiling_unit": "数据产品市场应用服务组件团队",
+    "compiling_date": "2025/9/10"
+  },
+  "revisions": [
+    {
+      "version": "1.0.0",
+      "revision_date": "2025/9/10",
+      "content": "完成接口文档初始版本，包含36个接口的基本信息和5个核心接口的详细参数定义及示例",
+      "revision_by": "数据产品市场应用服务组件团队"
+    },
+    {
+      "version": "1.1.0",
+      "revision_date": "2025/12/22",
+      "content": "优化接口文档结构，统一字段命名，完善所有接口的请求/响应参数定义和示例",
+      "revision_by": "数据产品市场应用服务组件团队"
+    }
+  ],
+  "foreword": {
+    "purpose": "本文档主要介绍数据产品市场应用服务组件的接口服务的详细设计和接口规范，其目的用于指导数据产品市场场景的接入。为明确数据产品市场应用服务组件的接口服务的详细功能，特撰写此文档，主要内容为接口交互的详细数据格式和限定。",
+    "scope": "本接口文档适用于数据产品市场应用服务组件的开发人员、测试人员、集成人员以及相关业务对接人员。",
+    "terms": [
+      {
+        "term": "DID",
+        "definition": "基于区块链技术的分布式数字身份是一种自我主权的、可验证的、新型数字身份。W3C为这种身份定义了\"分布式数字身份标识符规范\"（Decentralized ID, DID）一种新型的全球唯一标识符。"
+      }
+    ]
+  },
+  "interface_design": {
+    "communication_method": {
+      "protocol": "Http(s)",
+      "data_format": "Json报文格式",
+      "content_type": "application/json"
+    },
+    "fixed_request_params": [],
+    "interface_list": [
+      {
+        "id": "2.4.1",
+        "name": "产品大厅筛选条件列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductFilters"
+      },
+      {
+        "id": "2.4.2",
+        "name": "产品大厅列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProducts"
+      },
+      {
+        "id": "2.4.3",
+        "name": "产品详情接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getProductInfo"
+      },
+      {
+        "id": "2.4.4",
+        "name": "数据产品申请接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/createProductApply"
+      },
+      {
+        "id": "2.4.5",
+        "name": "授权审批列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductApproved"
+      },
+      {
+        "id": "2.4.6",
+        "name": "申请单详情接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getApplyInfo"
+      },
+      {
+        "id": "2.4.7",
+        "name": "申请单审批接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/approve"
+      },
+      {
+        "id": "2.4.8",
+        "name": "申请单管理列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductApplied"
+      },
+      {
+        "id": "2.4.9",
+        "name": "持有方交付管理列表接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/getHolderDeliveryList"
+      },
+      {
+        "id": "2.4.10",
+        "name": "使用方交付管理列表接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/getApplyDeliveryList"
+      },
+      {
+        "id": "2.4.11",
+        "name": "交付单详情接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryInfoForInternal"
+      },
+      {
+        "id": "2.4.12",
+        "name": "交付记录列表接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryPeriodList"
+      },
+      {
+        "id": "2.4.13",
+        "name": "计费次数统计接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryPeriodSummary"
+      },
+      {
+        "id": "2.4.14",
+        "name": "上报明细",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryPeriodInfo"
+      },
+      {
+        "id": "2.4.15",
+        "name": "交付调用记录明细",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryCallRecordList"
+      },
+      {
+        "id": "2.4.16",
+        "name": "订单列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getOrderList"
+      },
+      {
+        "id": "2.4.17-1",
+        "name": "创建订单接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/createOrder"
+      },
+      {
+        "id": "2.4.17-2",
+        "name": "取消订单接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/cancelOrder"
+      },
+      {
+        "id": "2.4.18",
+        "name": "上传(修改)支付凭证接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/settleOrderPayment"
+      },
+      {
+        "id": "2.4.19",
+        "name": "确认支付接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/comfirmOrderPayment"
+      },
+      {
+        "id": "2.4.20",
+        "name": "启动交付单接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/startDelivery"
+      },
+      {
+        "id": "2.4.21",
+        "name": "结束交付单接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/endDelivery"
+      },
+      {
+        "id": "2.4.22",
+        "name": "发送交付明细接口",
+        "method": "POST",
+        "path": "/v1/edge-connector/sendDeliveryDetail"
+      },
+      {
+        "id": "2.4.23",
+        "name": "授权书模版列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listAuthorisationTemplate"
+      },
+      {
+        "id": "2.4.24",
+        "name": "授权书模版详情",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getAuthorisationTemplateInfo"
+      },
+      {
+        "id": "2.4.25",
+        "name": "授权书模版名称下拉框",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listAuthorisationTemplateName"
+      },
+      {
+        "id": "2.4.26",
+        "name": "授权书预览",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getAuthorisationPreview"
+      },
+      {
+        "id": "2.4.27",
+        "name": "使用方授权记录列表",
+        "method": "POST",
+        "path": "/v1/edge-connector/listApplyAuthorisation"
+      },
+      {
+        "id": "2.4.28",
+        "name": "提供方授权记录列表",
+        "method": "POST",
+        "path": "/v1/edge-connector/listProviderAuthorisation"
+      },
+      {
+        "id": "2.4.29",
+        "name": "授权记录详情",
+        "method": "POST",
+        "path": "/v1/edge-connector/getAuthorisationRecord"
+      },
+      {
+        "id": "2.4.30",
+        "name": "授权书验证记录列表",
+        "method": "POST",
+        "path": "/v1/edge-connector/listAuthorisationVerifyRecord"
+      },
+      {
+        "id": "2.4.31",
+        "name": "授权书撤销",
+        "method": "POST",
+        "path": "/v1/edge-connector/cancelAuthorisation"
+      },
+      {
+        "id": "2.4.32",
+        "name": "新增对公账户",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/createCorporateAccount"
+      },
+      {
+        "id": "2.4.33",
+        "name": "编辑对公账户",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/updateCorporateAccount"
+      },
+      {
+        "id": "2.4.34",
+        "name": "删除对公账户",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/deleteCorporateAccount"
+      },
+      {
+        "id": "2.4.35",
+        "name": "对公账户列表接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getCorporateAccountList"
+      },
+      {
+        "id": "2.4.36",
+        "name": "链上查询对公账户接口",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getCorporateAccountInfoFromChain"
+      }
+    ],
+    "interface_details": [
+      {
+        "id": "2.4.1",
+        "name": "产品大厅筛选条件列表接口",
+        "description": "获取产品大厅筛选条件列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductFilters",
+        "request_params": [],
+        "request_example": {},
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "筛选条件数据",
+            "properties": {
+              "values": {
+                "type": "array",
+                "description": "筛选条件值列表",
+                "items": {
+                  "type": "object",
+                  "description": "筛选条件项",
+                  "properties": {
+                    "filterId": {
+                      "type": "string",
+                      "description": "筛选条件ID"
+                    },
+                    "filterName": {
+                      "type": "string",
+                      "description": "筛选条件名称"
+                    },
+                    "filterType": {
+                      "type": "string",
+                      "description": "筛选条件类型（如：单选、多选）"
+                    },
+                    "filterValues": {
+                      "type": "array",
+                      "description": "筛选条件值选项",
+                      "items": {
+                        "type": "object",
+                        "description": "筛选条件值选项",
+                        "properties": {
+                          "valueId": {
+                            "type": "string",
+                            "description": "筛选值ID"
+                          },
+                          "valueName": {
+                            "type": "string",
+                            "description": "筛选值名称"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "values": [
+              {
+                "filterId": "filter_001",
+                "filterName": "产品类型",
+                "filterType": "多选",
+                "filterValues": [
+                  {
+                    "valueId": "value_001",
+                    "valueName": "数据报告"
+                  },
+                  {
+                    "valueId": "value_002",
+                    "valueName": "数据集"
+                  },
+                  {
+                    "valueId": "value_003",
+                    "valueName": "API服务"
+                  }
+                ]
+              },
+              {
+                "filterId": "filter_002",
+                "filterName": "价格区间",
+                "filterType": "单选",
+                "filterValues": [
+                  {
+                    "valueId": "value_004",
+                    "valueName": "0-100元"
+                  },
+                  {
+                    "valueId": "value_005",
+                    "valueName": "100-500元"
+                  },
+                  {
+                    "valueId": "value_006",
+                    "valueName": "500元以上"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "2.4.2",
+        "name": "产品大厅列表接口",
+        "description": "获取产品大厅列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProducts",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码，从1开始"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "filters",
+            "type": "array",
+            "required": false,
+            "description": "筛选条件列表",
+            "items": {
+              "type": "object",
+              "properties": {
+                "filterId": {
+                  "type": "string",
+                  "description": "筛选条件ID"
+                },
+                "filterValueIds": {
+                  "type": "array",
+                  "description": "筛选值ID列表",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "type": "string",
+            "required": false,
+            "description": "排序字段"
+          },
+          {
+            "name": "sortOrder",
+            "type": "string",
+            "required": false,
+            "description": "排序方向（asc:升序, desc:降序）"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "filters": [
+            {
+              "filterId": "filter_001",
+              "filterValueIds": ["value_001", "value_002"]
+            }
+          ],
+          "sortBy": "createTime",
+          "sortOrder": "desc"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "产品列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "产品列表",
+                "items": {
+                  "type": "object",
+                  "description": "产品项",
+                  "properties": {
+                    "productItem": {
+                      "type": "object",
+                      "description": "产品基本信息",
+                      "properties": {
+                        "productId": {
+                          "type": "string",
+                          "description": "产品ID"
+                        },
+                        "productName": {
+                          "type": "string",
+                          "description": "产品名称"
+                        },
+                        "productType": {
+                          "type": "string",
+                          "description": "产品类型"
+                        },
+                        "productStatus": {
+                          "type": "string",
+                          "description": "产品状态"
+                        },
+                        "createTime": {
+                          "type": "string",
+                          "description": "创建时间"
+                        },
+                        "updateTime": {
+                          "type": "string",
+                          "description": "更新时间"
+                        }
+                      }
+                    },
+                    "productPrice": {
+                      "type": "object",
+                      "description": "产品价格信息",
+                      "properties": {
+                        "priceId": {
+                          "type": "string",
+                          "description": "价格ID"
+                        },
+                        "price": {
+                          "type": "number",
+                          "description": "产品价格"
+                        },
+                        "unit": {
+                          "type": "string",
+                          "description": "价格单位"
+                        },
+                        "priceType": {
+                          "type": "string",
+                          "description": "价格类型（如：一次性、周期性）"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "productItem": {
+                  "productId": "prod_001",
+                  "productName": "金融行业数据分析报告",
+                  "productType": "数据报告",
+                  "productStatus": "上架",
+                  "createTime": "2025-01-15 10:30:00",
+                  "updateTime": "2025-01-15 10:30:00"
+                },
+                "productPrice": {
+                  "priceId": "price_001",
+                  "price": 299.00,
+                  "unit": "元",
+                  "priceType": "一次性"
+                }
+              },
+              {
+                "productItem": {
+                  "productId": "prod_002",
+                  "productName": "电商用户行为数据集",
+                  "productType": "数据集",
+                  "productStatus": "上架",
+                  "createTime": "2025-01-14 14:20:00",
+                  "updateTime": "2025-01-14 14:20:00"
+                },
+                "productPrice": {
+                  "priceId": "price_002",
+                  "price": 159.00,
+                  "unit": "元",
+                  "priceType": "一次性"
+                }
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 25,
+              "pages": 3
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.3",
+        "name": "产品详情接口",
+        "description": "获取产品详情信息",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getProductInfo",
+        "request_params": [
+          {
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "产品ID"
+          }
+        ],
+        "request_example": {
+          "productId": "123456"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "产品详情数据",
+            "properties": {
+              "productItem": {
+                "type": "object",
+                "description": "产品基本信息",
+                "properties": {
+                  "productId": {
+                    "type": "string",
+                    "description": "产品ID"
+                  },
+                  "productName": {
+                    "type": "string",
+                    "description": "产品名称"
+                  },
+                  "productType": {
+                    "type": "string",
+                    "description": "产品类型"
+                  },
+                  "productStatus": {
+                    "type": "string",
+                    "description": "产品状态"
+                  },
+                  "createTime": {
+                    "type": "string",
+                    "description": "创建时间"
+                  }
+                }
+              },
+              "productPrice": {
+                "type": "object",
+                "description": "产品价格信息",
+                "properties": {
+                  "priceId": {
+                    "type": "string",
+                    "description": "价格ID"
+                  },
+                  "price": {
+                    "type": "number",
+                    "description": "产品价格"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "description": "价格单位"
+                  },
+                  "priceType": {
+                    "type": "string",
+                    "description": "价格类型"
+                  }
+                }
+              },
+              "productDescription": {
+                "type": "string",
+                "description": "产品描述"
+              },
+              "productFeatures": {
+                "type": "array",
+                "description": "产品特性列表",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "productItem": {
+              "productId": "prod_001",
+              "productName": "金融行业数据分析报告",
+              "productType": "数据报告",
+              "productStatus": "上架",
+              "createTime": "2025-01-15 10:30:00"
+            },
+            "productPrice": {
+              "priceId": "price_001",
+              "price": 299.00,
+              "unit": "元",
+              "priceType": "一次性"
+            },
+            "productDescription": "本报告提供了金融行业2025年第一季度的详细数据分析，包括市场趋势、风险评估和投资建议。",
+            "productFeatures": [
+              "基于真实市场数据",
+              "包含100+数据图表",
+              "专业分析师团队撰写",
+              "季度更新"
+            ]
+          }
+        }
+      },
+      {
+        "id": "2.4.4",
+        "name": "数据产品申请接口",
+        "description": "申请数据产品",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/createProductApply",
+        "request_params": [
+          {
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "产品ID"
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "required": true,
+            "description": "申请数量"
+          },
+          {
+            "name": "applyReason",
+            "type": "string",
+            "required": false,
+            "description": "申请理由"
+          }
+        ],
+        "request_example": {
+          "productId": "123456",
+          "quantity": 1,
+          "applyReason": "业务需求"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "申请结果数据",
+            "properties": {
+              "applyId": {
+                "type": "string",
+                "description": "申请单ID"
+              },
+              "status": {
+                "type": "string",
+                "description": "申请状态"
+              },
+              "createTime": {
+                "type": "string",
+                "description": "创建时间"
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "applyId": "apply_001",
+            "status": "pending",
+            "createTime": "2025-01-20 14:30:00"
+          }
+        }
+      },
+      {
+        "id": "2.4.16",
+        "name": "订单列表接口",
+        "description": "获取订单列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getOrderList",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "description": "订单状态"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "status": "pending"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "订单列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "订单列表",
+                "items": {
+                  "type": "object",
+                  "description": "订单项",
+                  "properties": {
+                    "orderId": {
+                      "type": "string",
+                      "description": "订单ID"
+                    },
+                    "productId": {
+                      "type": "string",
+                      "description": "产品ID"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "description": "产品名称"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "description": "订单金额"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "订单状态"
+                    },
+                    "createTime": {
+                      "type": "string",
+                      "description": "创建时间"
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "orderId": "order_001",
+                "productId": "prod_001",
+                "productName": "金融行业数据分析报告",
+                "amount": 299.00,
+                "status": "pending",
+                "createTime": "2025-01-21 10:30:00"
+              },
+              {
+                "orderId": "order_002",
+                "productId": "prod_002",
+                "productName": "电商用户行为数据集",
+                "amount": 159.00,
+                "status": "paid",
+                "createTime": "2025-01-20 14:20:00"
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 15,
+              "pages": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.17-1",
+        "name": "创建订单接口",
+        "description": "创建产品订单",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/createOrder",
+        "request_params": [
+          {
+            "name": "productId",
+            "type": "string",
+            "required": true,
+            "description": "产品ID"
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "required": true,
+            "description": "购买数量"
+          },
+          {
+            "name": "priceId",
+            "type": "string",
+            "required": true,
+            "description": "价格ID"
+          }
+        ],
+        "request_example": {
+          "productId": "123456",
+          "quantity": 1,
+          "priceId": "price_001"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "订单创建结果",
+            "properties": {
+              "orderId": {
+                "type": "string",
+                "description": "订单ID"
+              },
+              "amount": {
+                "type": "number",
+                "description": "订单金额"
+              },
+              "status": {
+                "type": "string",
+                "description": "订单状态"
+              },
+              "createTime": {
+                "type": "string",
+                "description": "创建时间"
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "orderId": "order_003",
+            "amount": 299.00,
+            "status": "pending",
+            "createTime": "2025-01-22 09:15:00"
+          }
+        }
+      },
+      {
+        "id": "2.4.5",
+        "name": "授权审批列表接口",
+        "description": "获取授权审批列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductApproved",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码，从1开始"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "description": "审批状态"
+          },
+          {
+            "name": "productId",
+            "type": "string",
+            "required": false,
+            "description": "产品ID"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "status": "pending",
+          "productId": "123456"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "授权审批列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "授权审批列表",
+                "items": {
+                  "type": "object",
+                  "description": "授权审批项",
+                  "properties": {
+                    "approvalId": {
+                      "type": "string",
+                      "description": "审批ID"
+                    },
+                    "applyId": {
+                      "type": "string",
+                      "description": "申请单ID"
+                    },
+                    "productId": {
+                      "type": "string",
+                      "description": "产品ID"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "description": "产品名称"
+                    },
+                    "applicantId": {
+                      "type": "string",
+                      "description": "申请人ID"
+                    },
+                    "applicantName": {
+                      "type": "string",
+                      "description": "申请人姓名"
+                    },
+                    "applyTime": {
+                      "type": "string",
+                      "description": "申请时间"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "审批状态"
+                    },
+                    "approverId": {
+                      "type": "string",
+                      "description": "审批人ID"
+                    },
+                    "approverName": {
+                      "type": "string",
+                      "description": "审批人姓名"
+                    },
+                    "approveTime": {
+                      "type": "string",
+                      "description": "审批时间"
+                    },
+                    "approveComment": {
+                      "type": "string",
+                      "description": "审批意见"
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "approvalId": "approval_001",
+                "applyId": "apply_001",
+                "productId": "prod_001",
+                "productName": "金融行业数据分析报告",
+                "applicantId": "user_001",
+                "applicantName": "张三",
+                "applyTime": "2025-01-20 14:30:00",
+                "status": "pending",
+                "approverId": "user_002",
+                "approverName": "李四",
+                "approveTime": "",
+                "approveComment": ""
+              },
+              {
+                "approvalId": "approval_002",
+                "applyId": "apply_002",
+                "productId": "prod_002",
+                "productName": "电商用户行为数据集",
+                "applicantId": "user_003",
+                "applicantName": "王五",
+                "applyTime": "2025-01-19 10:15:00",
+                "status": "approved",
+                "approverId": "user_002",
+                "approverName": "李四",
+                "approveTime": "2025-01-19 14:20:00",
+                "approveComment": "同意申请"
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 25,
+              "pages": 3
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.6",
+        "name": "申请单详情接口",
+        "description": "获取申请单详情信息",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/getApplyInfo",
+        "request_params": [
+          {
+            "name": "applyId",
+            "type": "string",
+            "required": true,
+            "description": "申请单ID"
+          }
+        ],
+        "request_example": {
+          "applyId": "apply_001"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "申请单详情数据",
+            "properties": {
+              "applyId": {
+                "type": "string",
+                "description": "申请单ID"
+              },
+              "productId": {
+                "type": "string",
+                "description": "产品ID"
+              },
+              "productName": {
+                "type": "string",
+                "description": "产品名称"
+              },
+              "applicantId": {
+                "type": "string",
+                "description": "申请人ID"
+              },
+              "applicantName": {
+                "type": "string",
+                "description": "申请人姓名"
+              },
+              "applicantOrg": {
+                "type": "string",
+                "description": "申请人所属组织"
+              },
+              "applyTime": {
+                "type": "string",
+                "description": "申请时间"
+              },
+              "quantity": {
+                "type": "number",
+                "description": "申请数量"
+              },
+              "applyReason": {
+                "type": "string",
+                "description": "申请理由"
+              },
+              "status": {
+                "type": "string",
+                "description": "申请状态"
+              },
+              "approvalId": {
+                "type": "string",
+                "description": "审批ID"
+              },
+              "approverId": {
+                "type": "string",
+                "description": "审批人ID"
+              },
+              "approverName": {
+                "type": "string",
+                "description": "审批人姓名"
+              },
+              "approveTime": {
+                "type": "string",
+                "description": "审批时间"
+              },
+              "approveComment": {
+                "type": "string",
+                "description": "审批意见"
+              },
+              "createTime": {
+                "type": "string",
+                "description": "创建时间"
+              },
+              "updateTime": {
+                "type": "string",
+                "description": "更新时间"
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "applyId": "apply_001",
+            "productId": "prod_001",
+            "productName": "金融行业数据分析报告",
+            "applicantId": "user_001",
+            "applicantName": "张三",
+            "applicantOrg": "技术部",
+            "applyTime": "2025-01-20 14:30:00",
+            "quantity": 1,
+            "applyReason": "业务需求",
+            "status": "approved",
+            "approvalId": "approval_001",
+            "approverId": "user_002",
+            "approverName": "李四",
+            "approveTime": "2025-01-20 16:45:00",
+            "approveComment": "同意申请",
+            "createTime": "2025-01-20 14:30:00",
+            "updateTime": "2025-01-20 16:45:00"
+          }
+        }
+      },
+      {
+        "id": "2.4.7",
+        "name": "申请单审批接口",
+        "description": "审批产品申请单",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/approve",
+        "request_params": [
+          {
+            "name": "approvalId",
+            "type": "string",
+            "required": true,
+            "description": "审批ID"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": true,
+            "description": "审批状态（approved/rejected）"
+          },
+          {
+            "name": "approveComment",
+            "type": "string",
+            "required": false,
+            "description": "审批意见"
+          }
+        ],
+        "request_example": {
+          "approvalId": "approval_001",
+          "status": "approved",
+          "approveComment": "同意申请"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "审批结果数据",
+            "properties": {
+              "approvalId": {
+                "type": "string",
+                "description": "审批ID"
+              },
+              "status": {
+                "type": "string",
+                "description": "审批状态"
+              },
+              "approveTime": {
+                "type": "string",
+                "description": "审批时间"
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "approvalId": "approval_001",
+            "status": "approved",
+            "approveTime": "2025-01-20 16:45:00"
+          }
+        }
+      },
+      {
+        "id": "2.4.8",
+        "name": "申请单管理列表接口",
+        "description": "获取申请单管理列表",
+        "method": "POST",
+        "path": "/v1/dpm-core-service/listProductApplied",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码，从1开始"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "description": "申请状态"
+          },
+          {
+            "name": "productName",
+            "type": "string",
+            "required": false,
+            "description": "产品名称（模糊查询）"
+          },
+          {
+            "name": "startTime",
+            "type": "string",
+            "required": false,
+            "description": "申请开始时间"
+          },
+          {
+            "name": "endTime",
+            "type": "string",
+            "required": false,
+            "description": "申请结束时间"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "status": "approved",
+          "productName": "数据分析",
+          "startTime": "2025-01-01",
+          "endTime": "2025-01-31"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "申请单管理列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "申请单列表",
+                "items": {
+                  "type": "object",
+                  "description": "申请单项",
+                  "properties": {
+                    "applyId": {
+                      "type": "string",
+                      "description": "申请单ID"
+                    },
+                    "productId": {
+                      "type": "string",
+                      "description": "产品ID"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "description": "产品名称"
+                    },
+                    "applicantId": {
+                      "type": "string",
+                      "description": "申请人ID"
+                    },
+                    "applicantName": {
+                      "type": "string",
+                      "description": "申请人姓名"
+                    },
+                    "applyTime": {
+                      "type": "string",
+                      "description": "申请时间"
+                    },
+                    "quantity": {
+                      "type": "number",
+                      "description": "申请数量"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "申请状态"
+                    },
+                    "approverName": {
+                      "type": "string",
+                      "description": "审批人姓名"
+                    },
+                    "approveTime": {
+                      "type": "string",
+                      "description": "审批时间"
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "applyId": "apply_001",
+                "productId": "prod_001",
+                "productName": "金融行业数据分析报告",
+                "applicantId": "user_001",
+                "applicantName": "张三",
+                "applyTime": "2025-01-20 14:30:00",
+                "quantity": 1,
+                "status": "approved",
+                "approverName": "李四",
+                "approveTime": "2025-01-20 16:45:00"
+              },
+              {
+                "applyId": "apply_002",
+                "productId": "prod_002",
+                "productName": "电商用户行为数据集",
+                "applicantId": "user_003",
+                "applicantName": "王五",
+                "applyTime": "2025-01-19 10:15:00",
+                "quantity": 2,
+                "status": "rejected",
+                "approverName": "李四",
+                "approveTime": "2025-01-19 11:30:00"
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 18,
+              "pages": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.9",
+        "name": "持有方交付管理列表接口",
+        "description": "获取持有方交付管理列表",
+        "method": "POST",
+        "path": "/v1/edge-connector/getHolderDeliveryList",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码，从1开始"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "deliveryStatus",
+            "type": "string",
+            "required": false,
+            "description": "交付状态"
+          },
+          {
+            "name": "productName",
+            "type": "string",
+            "required": false,
+            "description": "产品名称（模糊查询）"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "deliveryStatus": "delivering",
+          "productName": "数据分析"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "持有方交付管理列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "交付列表",
+                "items": {
+                  "type": "object",
+                  "description": "交付项",
+                  "properties": {
+                    "deliveryId": {
+                      "type": "string",
+                      "description": "交付ID"
+                    },
+                    "orderId": {
+                      "type": "string",
+                      "description": "订单ID"
+                    },
+                    "productId": {
+                      "type": "string",
+                      "description": "产品ID"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "description": "产品名称"
+                    },
+                    "applicantId": {
+                      "type": "string",
+                      "description": "使用方ID"
+                    },
+                    "applicantName": {
+                      "type": "string",
+                      "description": "使用方名称"
+                    },
+                    "deliveryStatus": {
+                      "type": "string",
+                      "description": "交付状态"
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "description": "开始时间"
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "description": "结束时间"
+                    },
+                    "totalCount": {
+                      "type": "number",
+                      "description": "总调用次数"
+                    },
+                    "usedCount": {
+                      "type": "number",
+                      "description": "已调用次数"
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "deliveryId": "delivery_001",
+                "orderId": "order_001",
+                "productId": "prod_001",
+                "productName": "金融行业数据分析报告",
+                "applicantId": "user_001",
+                "applicantName": "张三",
+                "deliveryStatus": "delivering",
+                "startTime": "2025-01-21 09:00:00",
+                "endTime": "2025-12-31 23:59:59",
+                "totalCount": 1000,
+                "usedCount": 150
+              },
+              {
+                "deliveryId": "delivery_002",
+                "orderId": "order_002",
+                "productId": "prod_002",
+                "productName": "电商用户行为数据集",
+                "applicantId": "user_003",
+                "applicantName": "王五",
+                "deliveryStatus": "completed",
+                "startTime": "2024-10-01 00:00:00",
+                "endTime": "2024-12-31 23:59:59",
+                "totalCount": 500,
+                "usedCount": 500
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 22,
+              "pages": 3
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.10",
+        "name": "使用方交付管理列表接口",
+        "description": "获取使用方交付管理列表",
+        "method": "POST",
+        "path": "/v1/edge-connector/getApplyDeliveryList",
+        "request_params": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "required": true,
+            "description": "页码，从1开始"
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "required": true,
+            "description": "每页数量"
+          },
+          {
+            "name": "deliveryStatus",
+            "type": "string",
+            "required": false,
+            "description": "交付状态"
+          },
+          {
+            "name": "productName",
+            "type": "string",
+            "required": false,
+            "description": "产品名称（模糊查询）"
+          }
+        ],
+        "request_example": {
+          "pageNum": 1,
+          "pageSize": 10,
+          "deliveryStatus": "delivering",
+          "productName": "数据分析"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "使用方交付管理列表数据",
+            "properties": {
+              "list": {
+                "type": "array",
+                "description": "交付列表",
+                "items": {
+                  "type": "object",
+                  "description": "交付项",
+                  "properties": {
+                    "deliveryId": {
+                      "type": "string",
+                      "description": "交付ID"
+                    },
+                    "orderId": {
+                      "type": "string",
+                      "description": "订单ID"
+                    },
+                    "productId": {
+                      "type": "string",
+                      "description": "产品ID"
+                    },
+                    "productName": {
+                      "type": "string",
+                      "description": "产品名称"
+                    },
+                    "providerId": {
+                      "type": "string",
+                      "description": "持有方ID"
+                    },
+                    "providerName": {
+                      "type": "string",
+                      "description": "持有方名称"
+                    },
+                    "deliveryStatus": {
+                      "type": "string",
+                      "description": "交付状态"
+                    },
+                    "startTime": {
+                      "type": "string",
+                      "description": "开始时间"
+                    },
+                    "endTime": {
+                      "type": "string",
+                      "description": "结束时间"
+                    },
+                    "totalCount": {
+                      "type": "number",
+                      "description": "总调用次数"
+                    },
+                    "usedCount": {
+                      "type": "number",
+                      "description": "已调用次数"
+                    }
+                  }
+                }
+              },
+              "pagination": {
+                "type": "object",
+                "description": "分页信息",
+                "properties": {
+                  "pageNum": {
+                    "type": "number",
+                    "description": "当前页码"
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "description": "每页数量"
+                  },
+                  "total": {
+                    "type": "number",
+                    "description": "总记录数"
+                  },
+                  "pages": {
+                    "type": "number",
+                    "description": "总页数"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response_example": {
+          "code": 0,
+          "msg": "成功",
+          "data": {
+            "list": [
+              {
+                "deliveryId": "delivery_001",
+                "orderId": "order_001",
+                "productId": "prod_001",
+                "productName": "金融行业数据分析报告",
+                "providerId": "provider_001",
+                "providerName": "数据服务公司",
+                "deliveryStatus": "delivering",
+                "startTime": "2025-01-21 09:00:00",
+                "endTime": "2025-12-31 23:59:59",
+                "totalCount": 1000,
+                "usedCount": 150
+              },
+              {
+                "deliveryId": "delivery_003",
+                "orderId": "order_003",
+                "productId": "prod_003",
+                "productName": "市场趋势分析报告",
+                "providerId": "provider_002",
+                "providerName": "市场研究机构",
+                "deliveryStatus": "pending",
+                "startTime": "2025-02-01 00:00:00",
+                "endTime": "2025-02-28 23:59:59",
+                "totalCount": 500,
+                "usedCount": 0
+              }
+            ],
+            "pagination": {
+              "pageNum": 1,
+              "pageSize": 10,
+              "total": 15,
+              "pages": 2
+            }
+          }
+        }
+      },
+      {
+        "id": "2.4.11",
+        "name": "交付单详情接口",
+        "description": "获取交付单详情信息",
+        "method": "POST",
+        "path": "/v1/edge-connector/getDeliveryInfoForInternal",
+        "request_params": [
+          {
+            "name": "deliveryId",
+            "type": "string",
+            "required": true,
+            "description": "交付ID"
+          }
+        ],
+        "request_example": {
+          "deliveryId": "delivery_001"
+        },
+        "response_params": {
+          "code": {
+            "type": "number",
+            "description": "响应码，0表示成功"
+          },
+          "msg": {
+            "type": "string",
+            "description": "响应消息"
+          },
+          "data": {
+            "type": "object",
+            "description": "交付单详情数据",
+            "properties": {
+              "deliveryId": {
+                "type": "string",
+                "description": "交付ID"
+              },
+              "orderId": {
+                "type": "string",
+                "description": "订单ID"
+              },
+              "productId": {
+                "type": "string",
+                "description": "产品ID"
+              },
+              "productName": {
+                "type": "string",
+                "description": "产品名称"
+              },
+              "applicantId": {
+                "type": "string",
+                "description": "使用方ID"
+              },
+              "applicantName": {
+                "type": "string",
+                "description": "使用方名称"
+              },
+              "providerId": {
+                "type": "string",
+                "description": "持有方ID"
+              },
+              "providerName": {
+                "type": "string",
+                "description": "持有方名称"
+              },
+                "deliveryStatus": {
+                  "type": "string",
+                  "description": "交付状态"
+                },
+                "startTime": {
+                  "type": "string",
+                  "description": "开始时间"
+                },
+                "endTime": {
+                  "type": "string",
+                  "description": "结束时间"
+                },
+                "totalCount": {
+                  "type": "number",
+                  "description": "总调用次数"
+                },
+                "usedCount": {
+                  "type": "number",
+                  "description": "已调用次数"
+                },
+                "createTime": {
+                  "type": "string",
+                  "description": "创建时间"
+                },
+                "updateTime": {
+                  "type": "string",
+                  "description": "更新时间"
+                }
+              }
+            }
+          },
+          "response_example": {
+            "code": 0,
+            "msg": "成功",
+            "data": {
+              "deliveryId": "delivery_001",
+              "orderId": "order_001",
+              "productId": "prod_001",
+              "productName": "金融行业数据分析报告",
+              "applicantId": "user_001",
+              "applicantName": "张三",
+              "providerId": "provider_001",
+              "providerName": "数据服务公司",
+              "deliveryStatus": "delivering",
+              "startTime": "2025-01-21 09:00:00",
+              "endTime": "2025-12-31 23:59:59",
+              "totalCount": 1000,
+              "usedCount": 150,
+              "createTime": "2025-01-20 16:45:00",
+              "updateTime": "2025-01-21 09:00:00"
+            }
+          }
+        },
+        {
+          "id": "2.4.12",
+          "name": "交付记录列表接口",
+          "description": "获取交付记录列表",
+          "method": "POST",
+          "path": "/v1/edge-connector/getDeliveryPeriodList",
+          "request_params": [
+            {
+              "name": "pageNum",
+              "type": "number",
+              "required": true,
+              "description": "页码，从1开始"
+            },
+            {
+              "name": "pageSize",
+              "type": "number",
+              "required": true,
+              "description": "每页数量"
+            },
+            {
+              "name": "deliveryId",
+              "type": "string",
+              "required": true,
+              "description": "交付ID"
+            },
+            {
+              "name": "startDate",
+              "type": "string",
+              "required": false,
+              "description": "开始日期"
+            },
+            {
+              "name": "endDate",
+              "type": "string",
+              "required": false,
+              "description": "结束日期"
+            }
+          ],
+          "request_example": {
+            "pageNum": 1,
+            "pageSize": 10,
+            "deliveryId": "delivery_001",
+            "startDate": "2025-01-01",
+            "endDate": "2025-01-31"
+          },
+          "response_params": {
+            "code": {
+              "type": "number",
+              "description": "响应码，0表示成功"
+            },
+            "msg": {
+              "type": "string",
+              "description": "响应消息"
+            },
+            "data": {
+              "type": "object",
+              "description": "交付记录列表数据",
+              "properties": {
+                "list": {
+                  "type": "array",
+                  "description": "交付记录列表",
+                  "items": {
+                    "type": "object",
+                    "description": "交付记录项",
+                    "properties": {
+                      "periodId": {
+                        "type": "string",
+                        "description": "周期ID"
+                      },
+                      "deliveryId": {
+                        "type": "string",
+                        "description": "交付ID"
+                      },
+                      "startDate": {
+                        "type": "string",
+                        "description": "开始日期"
+                      },
+                      "endDate": {
+                        "type": "string",
+                        "description": "结束日期"
+                      },
+                      "totalCount": {
+                        "type": "number",
+                        "description": "总调用次数"
+                      },
+                      "usedCount": {
+                        "type": "number",
+                        "description": "已调用次数"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "记录状态"
+                      }
+                    }
+                  }
+                },
+                "pagination": {
+                  "type": "object",
+                  "description": "分页信息",
+                  "properties": {
+                    "pageNum": {
+                      "type": "number",
+                      "description": "当前页码"
+                    },
+                    "pageSize": {
+                      "type": "number",
+                      "description": "每页数量"
+                    },
+                    "total": {
+                      "type": "number",
+                      "description": "总记录数"
+                    },
+                    "pages": {
+                      "type": "number",
+                      "description": "总页数"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "response_example": {
+            "code": 0,
+            "msg": "成功",
+            "data": {
+              "list": [
+                {
+                  "periodId": "period_001",
+                  "deliveryId": "delivery_001",
+                  "startDate": "2025-01-01",
+                  "endDate": "2025-01-07",
+                  "totalCount": 1000,
+                  "usedCount": 50,
+                  "status": "completed"
+                },
+                {
+                  "periodId": "period_002",
+                  "deliveryId": "delivery_001",
+                  "startDate": "2025-01-08",
+                  "endDate": "2025-01-14",
+                  "totalCount": 1000,
+                  "usedCount": 100,
+                  "status": "completed"
+                }
+              ],
+              "pagination": {
+                "pageNum": 1,
+                "pageSize": 10,
+                "total": 4,
+                "pages": 1
+              }
+            }
+          }
+        },
+        {
+          "id": "2.4.13",
+          "name": "计费次数统计接口",
+          "description": "获取计费次数统计",
+          "method": "POST",
+          "path": "/v1/edge-connector/getDeliveryPeriodSummary",
+          "request_params": [
+            {
+              "name": "deliveryId",
+              "type": "string",
+              "required": true,
+              "description": "交付ID"
+            },
+            {
+              "name": "startDate",
+              "type": "string",
+              "required": true,
+              "description": "开始日期"
+            },
+            {
+              "name": "endDate",
+              "type": "string",
+              "required": true,
+              "description": "结束日期"
+            }
+          ],
+          "request_example": {
+            "deliveryId": "delivery_001",
+            "startDate": "2025-01-01",
+            "endDate": "2025-01-31"
+          },
+          "response_params": {
+            "code": {
+              "type": "number",
+              "description": "响应码，0表示成功"
+            },
+            "msg": {
+              "type": "string",
+              "description": "响应消息"
+            },
+            "data": {
+              "type": "object",
+              "description": "计费次数统计数据",
+              "properties": {
+                "deliveryId": {
+                  "type": "string",
+                  "description": "交付ID"
+                },
+                "startDate": {
+                  "type": "string",
+                  "description": "开始日期"
+                },
+                "endDate": {
+                  "type": "string",
+                  "description": "结束日期"
+                },
+                "totalCount": {
+                  "type": "number",
+                  "description": "总调用次数"
+                },
+                "usedCount": {
+                  "type": "number",
+                  "description": "已调用次数"
+                },
+                "summaryList": {
+                  "type": "array",
+                  "description": "统计明细列表",
+                  "items": {
+                    "type": "object",
+                    "description": "统计明细项",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "description": "日期"
+                      },
+                      "count": {
+                        "type": "number",
+                        "description": "调用次数"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "response_example": {
+            "code": 0,
+            "msg": "成功",
+            "data": {
+              "deliveryId": "delivery_001",
+              "startDate": "2025-01-01",
+              "endDate": "2025-01-31",
+              "totalCount": 1000,
+              "usedCount": 150,
+              "summaryList": [
+                {
+                  "date": "2025-01-01",
+                  "count": 10
+                },
+                {
+                  "date": "2025-01-02",
+                  "count": 15
+                },
+                {
+                  "date": "2025-01-03",
+                  "count": 20
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "2.4.14",
+          "name": "上报明细",
+          "description": "获取交付上报明细",
+          "method": "POST",
+          "path": "/v1/edge-connector/getDeliveryPeriodInfo",
+          "request_params": [
+            {
+              "name": "periodId",
+              "type": "string",
+              "required": true,
+              "description": "周期ID"
+            }
+          ],
+          "request_example": {
+            "periodId": "period_001"
+          },
+          "response_params": {
+            "code": {
+              "type": "number",
+              "description": "响应码，0表示成功"
+            },
+            "msg": {
+              "type": "string",
+              "description": "响应消息"
+            },
+            "data": {
+              "type": "object",
+              "description": "交付上报明细数据",
+              "properties": {
+                "periodId": {
+                  "type": "string",
+                  "description": "周期ID"
+                },
+                "deliveryId": {
+                  "type": "string",
+                  "description": "交付ID"
+                },
+                "startDate": {
+                  "type": "string",
+                  "description": "开始日期"
+                },
+                "endDate": {
+                  "type": "string",
+                  "description": "结束日期"
+                },
+                "totalCount": {
+                  "type": "number",
+                  "description": "总调用次数"
+                },
+                "usedCount": {
+                  "type": "number",
+                  "description": "已调用次数"
+                },
+                "detailList": {
+                  "type": "array",
+                  "description": "明细列表",
+                  "items": {
+                    "type": "object",
+                    "description": "明细项",
+                    "properties": {
+                      "detailId": {
+                        "type": "string",
+                        "description": "明细ID"
+                      },
+                      "callTime": {
+                        "type": "string",
+                        "description": "调用时间"
+                      },
+                      "callerId": {
+                        "type": "string",
+                        "description": "调用者ID"
+                      },
+                      "callerName": {
+                        "type": "string",
+                        "description": "调用者名称"
+                      },
+                      "callResult": {
+                        "type": "string",
+                        "description": "调用结果（success/failure）"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "response_example": {
+            "code": 0,
+            "msg": "成功",
+            "data": {
+              "periodId": "period_001",
+              "deliveryId": "delivery_001",
+              "startDate": "2025-01-01",
+              "endDate": "2025-01-07",
+              "totalCount": 1000,
+              "usedCount": 50,
+              "detailList": [
+                {
+                  "detailId": "detail_001",
+                  "callTime": "2025-01-01 10:30:00",
+                  "callerId": "user_001",
+                  "callerName": "张三",
+                  "callResult": "success"
+                },
+                {
+                  "detailId": "detail_002",
+                  "callTime": "2025-01-01 11:15:00",
+                  "callerId": "user_001",
+                  "callerName": "张三",
+                  "callResult": "success"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "2.4.15",
+          "name": "交付调用记录明细",
+          "description": "获取交付调用记录明细",
+          "method": "POST",
+          "path": "/v1/edge-connector/getDeliveryCallRecordList",
+          "request_params": [
+            {
+              "name": "pageNum",
+              "type": "number",
+              "required": true,
+              "description": "页码，从1开始"
+            },
+            {
+              "name": "pageSize",
+              "type": "number",
+              "required": true,
+              "description": "每页数量"
+            },
+            {
+              "name": "deliveryId",
+              "type": "string",
+              "required": true,
+              "description": "交付ID"
+            },
+            {
+              "name": "startTime",
+              "type": "string",
+              "required": false,
+              "description": "开始时间"
+            },
+            {
+              "name": "endTime",
+              "type": "string",
+              "required": false,
+              "description": "结束时间"
+            },
+            {
+              "name": "callResult",
+              "type": "string",
+              "required": false,
+              "description": "调用结果（success/failure）"
+            }
+          ],
+          "request_example": {
+            "pageNum": 1,
+            "pageSize": 10,
+            "deliveryId": "delivery_001",
+            "startTime": "2025-01-01 00:00:00",
+            "endTime": "2025-01-01 23:59:59",
+            "callResult": "success"
+          },
+          "response_params": {
+            "code": {
+              "type": "number",
+              "description": "响应码，0表示成功"
+            },
+            "msg": {
+              "type": "string",
+              "description": "响应消息"
+            },
+            "data": {
+              "type": "object",
+              "description": "交付调用记录明细数据",
+              "properties": {
+                "list": {
+                  "type": "array",
+                  "description": "调用记录列表",
+                  "items": {
+                    "type": "object",
+                    "description": "调用记录项",
+                    "properties": {
+                      "recordId": {
+                        "type": "string",
+                        "description": "记录ID"
+                      },
+                      "deliveryId": {
+                        "type": "string",
+                        "description": "交付ID"
+                      },
+                      "callTime": {
+                        "type": "string",
+                        "description": "调用时间"
+                      },
+                      "callerId": {
+                        "type": "string",
+                        "description": "调用者ID"
+                      },
+                      "callerName": {
+                        "type": "string",
+                        "description": "调用者名称"
+                      },
+                      "callResult": {
+                        "type": "string",
+                        "description": "调用结果（success/failure）"
+                      },
+                      "callParams": {
+                        "type": "string",
+                        "description": "调用参数"
+                      },
+                      "callResponse": {
+                        "type": "string",
+                        "description": "调用响应"
+                      }
+                    }
+                  }
+                },
+                "pagination": {
+                  "type": "object",
+                  "description": "分页信息",
+                  "properties": {
+                    "pageNum": {
+                      "type": "number",
+                      "description": "当前页码"
+                    },
+                    "pageSize": {
+                      "type": "number",
+                      "description": "每页数量"
+                    },
+                    "total": {
+                      "type": "number",
+                      "description": "总记录数"
+                    },
+                    "pages": {
+                      "type": "number",
+                      "description": "总页数"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "response_example": {
+            "code": 0,
+            "msg": "成功",
+            "data": {
+              "list": [
+                {
+                  "recordId": "record_001",
+                  "deliveryId": "delivery_001",
+                  "callTime": "2025-01-01 10:30:00",
+                  "callerId": "user_001",
+                  "callerName": "张三",
+                  "callResult": "success",
+                  "callParams": "{\"productId\":\"prod_001\"}",
+                  "callResponse": "{\"code\":0,\"msg\":\"成功\",\"data\":{...}}"
+                },
+                {
+                  "recordId": "record_002",
+                  "deliveryId": "delivery_001",
+                  "callTime": "2025-01-01 11:15:00",
+                  "callerId": "user_001",
+                  "callerName": "张三",
+                  "callResult": "success",
+                  "callParams": "{\"productId\":\"prod_001\"}",
+                  "callResponse": "{\"code\":0,\"msg\":\"成功\",\"data\":{...}}"
+                }
+              ],
+              "pagination": {
+                "pageNum": 1,
+                "pageSize": 10,
+                "total": 15,
+                "pages": 2
+              }
+            }
+          }
+        },{"id":"2.4.16","name":"订单列表接口","description":"获取订单列表","method":"POST","path":"/v1/dpm-core-service/getOrderList","request_params":[{"name":"pageNum","type":"number","required":true,"description":"页码，从1开始"},{"name":"pageSize","type":"number","required":true,"description":"每页数量"},{"name":"orderStatus","type":"string","required":false,"description":"订单状态"},{"name":"productName","type":"string","required":false,"description":"产品名称（模糊查询）"},{"name":"startTime","type":"string","required":false,"description":"开始时间"},{"name":"endTime","type":"string","required":false,"description":"结束时间"}],"request_example":{"pageNum":1,"pageSize":10,"orderStatus":"paid","productName":"数据分析"},"response_params":{"code":{"type":"number","description":"响应码，0表示成功"},"msg":{"type":"string","description":"响应消息"},"data":{"type":"object","description":"订单列表数据","properties":{"list":{"type":"array","description":"订单列表","items":{"type":"object","description":"订单项","properties":{"orderId":"string","productId":"string","productName":"string","applicantId":"string","applicantName":"string","providerId":"string","providerName":"string","orderStatus":"string","totalAmount":"number","payAmount":"number","orderTime":"string","payTime":"string"}}},"pagination":{"type":"object","description":"分页信息","properties":{"pageNum":"number","pageSize":"number","total":"number","pages":"number"}}}}},"response_example":{"code":0,"msg":"成功","data":{"list":[{"orderId":"order_001","productId":"prod_001","productName":"金融行业数据分析报告","applicantId":"user_001","applicantName":"张三","providerId":"provider_001","providerName":"数据服务公司","orderStatus":"paid","totalAmount":1000,"payAmount":1000,"orderTime":"2025-01-20 14:30:00","payTime":"2025-01-20 14:35:00"},{"orderId":"order_002","productId":"prod_002","productName":"电商用户行为数据集","applicantId":"user_003","applicantName":"王五","providerId":"provider_002","providerName":"市场研究机构","orderStatus":"unpaid","totalAmount":500,"payAmount":0,"orderTime":"2025-01-21 10:15:00","payTime":""}],"pagination":{"pageNum":1,"pageSize":10,"total":25,"pages":3}}}},{"id":"2.4.17-1","name":"创建订单接口","description":"创建新订单","method":"POST","path":"/v1/dpm-core-service/createOrder","request_params":[{"name":"productId","type":"string","required":true,"description":"产品ID"},{"name":"quantity","type":"number","required":true,"description":"数量"},{"name":"contactPerson","type":"string","required":true,"description":"联系人"},{"name":"contactPhone","type":"string","required":true,"description":"联系电话"},{"name":"deliveryAddress","type":"string","required":true,"description":"交付地址"}],"request_example":{"productId":"prod_001","quantity":1,"contactPerson":"张三","contactPhone":"13800138000","deliveryAddress":"北京市海淀区"},"response_params":{"code":{"type":"number","description":"响应码，0表示成功"},"msg":{"type":"string","description":"响应消息"},"data":{"type":"object","description":"创建订单结果","properties":{"orderId":{"type":"string","description":"订单ID"},"orderStatus":{"type":"string","description":"订单状态"},"totalAmount":{"type":"number","description":"订单总金额"},"createTime":{"type":"string","description":"创建时间"}}}},"response_example":{"code":0,"msg":"成功","data":{"orderId":"order_003","orderStatus":"unpaid","totalAmount":1000,"createTime":"2025-01-22 09:30:00"}}},{"id":"2.4.17-2","name":"取消订单接口","description":"取消未支付的订单","method":"POST","path":"/v1/dpm-core-service/cancelOrder","request_params":[{"name":"orderId","type":"string","required":true,"description":"订单ID"},{"name":"cancelReason","type":"string","required":true,"description":"取消原因"}],"request_example":{"orderId":"order_002","cancelReason":"不需要该产品了"},"response_params":{"code":{"type":"number","description":"响应码，0表示成功"},"msg":{"type":"string","description":"响应消息"},"data":{"type":"object","description":"取消订单结果","properties":{"orderId":{"type":"string","description":"订单ID"},"orderStatus":{"type":"string","description":"订单状态"},"cancelTime":{"type":"string","description":"取消时间"}}}},"response_example":{"code":0,"msg":"成功","data":{"orderId":"order_002","orderStatus":"cancelled","cancelTime":"2025-01-21 11:30:00"}}},{"id":"2.4.18","name":"上传(修改)支付凭证接口","description":"上传或修改订单支付凭证","method":"POST","path":"/v1/dpm-core-service/settleOrderPayment","request_params":[{"name":"orderId","type":"string","required":true,"description":"订单ID"},{"name":"paymentVoucher","type":"string","required":true,"description":"支付凭证URL"},{"name":"paymentTime","type":"string","required":true,"description":"支付时间"}],"request_example":{"orderId":"order_001","paymentVoucher":"https://example.com/voucher/order_001.jpg","paymentTime":"2025-01-20 14:35:00"},"response_params":{"code":{"type":"number","description":"响应码，0表示成功"},"msg":{"type":"string","description":"响应消息"},"data":{"type":"object","description":"上传支付凭证结果","properties":{"orderId":{"type":"string","description":"订单ID"},"paymentStatus":{"type":"string","description":"支付状态"},"updateTime":{"type":"string","description":"更新时间"}}}},"response_example":{"code":0,"msg":"成功","data":{"orderId":"order_001","paymentStatus":"uploaded","updateTime":"2025-01-20 14:40:00"}}},{"id":"2.4.19","name":"确认支付接口","description":"确认订单支付状态","method":"POST","path":"/v1/dpm-core-service/comfirmOrderPayment","request_params":[{"name":"orderId","type":"string","required":true,"description":"订单ID"},{"name":"paymentAmount","type":"number","required":true,"description":"支付金额"},{"name":"paymentTime","type":"string","required":true,"description":"支付时间"},{"name":"paymentMethod","type":"string","required":true,"description":"支付方式"}],"request_example":{"orderId":"order_001","paymentAmount":1000,"paymentTime":"2025-01-20 14:35:00","paymentMethod":"bank_transfer"},"response_params":{"code":{"type":"number","description":"响应码，0表示成功"},"msg":{"type":"string","description":"响应消息"},"data":{"type":"object","description":"确认支付结果","properties":{"orderId":{"type":"string","description":"订单ID"},"orderStatus":{"type":"string","description":"订单状态"},"paymentStatus":{"type":"string","description":"支付状态"},"confirmTime":{"type":"string","description":"确认时间"}}}},"response_example":{"code":0,"msg":"成功","data":{"orderId":"order_001","orderStatus":"paid","paymentStatus":"confirmed","confirmTime":"2025-01-20 14:45:00"}}}]  },  "appendix": {
+    "return_codes": [
+      {
+        "code": 0,
+        "message": "成功",
+        "description": "接口调用成功，返回预期结果"
+      },
+      {
+        "code": 10001,
+        "message": "参数错误",
+        "description": "请求参数不完整或格式错误"
+      },
+      {
+        "code": 10002,
+        "message": "权限不足",
+        "description": "当前用户没有权限执行此操作"
+      },
+      {
+        "code": 10003,
+        "message": "资源不存在",
+        "description": "请求的资源不存在或已被删除"
+      },
+      {
+        "code": 10004,
+        "message": "业务逻辑错误",
+        "description": "业务逻辑校验失败，如产品已下架、库存不足等"
+      },
+      {
+        "code": 20001,
+        "message": "数据库操作失败",
+        "description": "数据库查询、插入、更新或删除操作失败"
+      },
+      {
+        "code": 20002,
+        "message": "服务调用失败",
+        "description": "调用外部服务或内部其他服务失败"
+      },
+      {
+        "code": 20003,
+        "message": "系统错误",
+        "description": "系统内部错误，如空指针异常、网络异常等"
+      }
+    ],
+    "specifications": "本接口文档中所有接口的响应格式统一为JSON格式，包含code、msg和data三个字段。code为响应码，0表示成功，非0表示失败；msg为响应消息，用于描述响应状态；data为响应数据，包含具体的业务信息。"
+  }
+}

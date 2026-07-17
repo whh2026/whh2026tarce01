@@ -1,0 +1,186 @@
+{
+  "test_01_product_filters_list": {
+    "test_case_desc": "产品大厅筛选条件列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_02_product_list": {
+    "test_case_desc": "产品大厅列表接口测试数据",
+    "test_case_data": {
+      "pagination": {
+        "pageNumber": 1,
+        "pageSize": 10,
+        "pageSizeLarge": 20
+      },
+      "filters": [
+        {
+          "key": "industry",
+          "values": ["0"]
+        },
+        {
+          "key": "authorization",
+          "values": ["0"]
+        }
+      ]
+    }
+  },
+  "test_03_product_detail": {
+    "test_case_desc": "产品详情接口测试数据",
+    "test_case_data": {
+      "productId": 1
+    }
+  },
+  "test_04_product_apply": {
+    "test_case_desc": "数据产品申请接口测试数据",
+    "test_case_data": {}
+  },
+  "test_05_product_approved_list": {
+    "test_case_desc": "授权审批列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_06_product_applied_list": {
+    "test_case_desc": "申请单管理列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_07_order_list": {
+    "test_case_desc": "订单列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_08_holder_delivery_list": {
+    "test_case_desc": "持有方交付管理列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_09_apply_delivery_list": {
+    "test_case_desc": "使用方交付管理列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_10_delivery_period_list": {
+    "test_case_desc": "交付记录列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_11_billing_statistics": {
+    "test_case_desc": "计费次数统计接口测试数据",
+    "test_case_data": {}
+  },
+  "test_12_delivery_detail": {
+    "test_case_desc": "上报明细接口测试数据",
+    "test_case_data": {}
+  },
+  "test_13_order_creation": {
+    "test_case_desc": "创建订单接口测试数据",
+    "test_case_data": {}
+  },
+  "test_14_authorisation_templates": {
+    "test_case_desc": "授权书模版列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_filters_list": {
+    "test_case_desc": "产品大厅筛选条件列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_list": {
+    "test_case_desc": "产品大厅列表接口测试数据",
+    "test_case_data": {
+      "pagination": {
+        "pageNumber": 1,
+        "pageSize": 10,
+        "pageSizeLarge": 20
+      },
+      "filters": [
+        {
+          "key": "industry",
+          "values": ["0"]
+        },
+        {
+          "key": "authorization",
+          "values": ["0"]
+        }
+      ]
+    }
+  },
+  "test_product_detail": {
+    "test_case_desc": "产品详情接口测试数据",
+    "test_case_data": {
+      "productId": 1
+    }
+  },
+  "test_product_apply": {
+    "test_case_desc": "数据产品申请接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_apply_list": {
+    "test_case_desc": "申请列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_apply_detail": {
+    "test_case_desc": "申请详情接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_apply_cancel": {
+    "test_case_desc": "取消申请接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_order_list": {
+    "test_case_desc": "订单列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_order_detail": {
+    "test_case_desc": "订单详情接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_order_verify": {
+    "test_case_desc": "订单验证接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish": {
+    "test_case_desc": "数据产品发布接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_list": {
+    "test_case_desc": "已发布产品列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_detail": {
+    "test_case_desc": "已发布产品详情接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_edit": {
+    "test_case_desc": "编辑已发布产品接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_off": {
+    "test_case_desc": "下架已发布产品接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_on": {
+    "test_case_desc": "上架已发布产品接口测试数据",
+    "test_case_data": {}
+  },
+  "test_product_publish_delete": {
+    "test_case_desc": "删除已发布产品接口测试数据",
+    "test_case_data": {}
+  },
+  "test_apply_approval": {
+    "test_case_desc": "申请审批接口测试数据",
+    "test_case_data": {}
+  },
+  "test_order_cancellation": {
+    "test_case_desc": "取消订单接口测试数据",
+    "test_case_data": {}
+  },
+  "test_authorisation_template_names": {
+    "test_case_desc": "授权书模版名称下拉框接口测试数据",
+    "test_case_data": {}
+  },
+  "test_holder_delivery_list": {
+    "test_case_desc": "持有方交付管理列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_apply_delivery_list": {
+    "test_case_desc": "使用方交付管理列表接口测试数据",
+    "test_case_data": {}
+  },
+  "test_delivery_period_list": {
+    "test_case_desc": "交付记录列表接口测试数据",
+    "test_case_data": {}
+  }
+}

@@ -1,0 +1,31 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.Python
+
+# ---- 环境与敏感信息（切勿提交）----
+.env
+*.local
+
+# ---- IDE / 工具目录 ----
+.dbg/
+.trae/
+.workbuddy/
+.idea/
+.vscode/
+
+# ---- 日志 ----
+*.log
+
+# ---- 调试截图与临时文档 ----
+debug_*.png
+debug-*.md
+
+# ---- 测试产物（报告、截图、json 输出）----
+reports/
+
+# ---- 文档生成临时目录 ----
+docs/_build/

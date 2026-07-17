@@ -1,0 +1,70 @@
+{
+  "test_001_registration_create_rule": {
+    "test_case_desc": "注册规则创建接口测试",
+    "test_case_data": {
+      "rule": {
+        "name": "abc",
+        "ruleType": 0,
+        "description": "",
+        "leftOperand": "dateTime",
+        "operator": "gteq",
+        "rightOperand": {
+          "value": "00:00:00"
+        }
+      },
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246",
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00"
+    }
+  },
+  "test_002_registration_create_rule_long_name": {
+    "test_case_desc": "注册规则创建接口测试-策略名称大于50个字符",
+    "test_case_data": {
+      "rule": {
+        "name": "这是一个真正超过50个字符的测试策略名称测试策略名称测试策略名称测试策略名称策略名称测试策略名称测试策略",
+        "ruleType": 0,
+        "description": "",
+        "leftOperand": "dateTime",
+        "operator": "gteq",
+        "rightOperand": {
+          "value": "00:00:00"
+        }
+      },
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246",
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00"
+    }
+  },
+  "test_003_registration_create_rule_empty_name": {
+    "test_case_desc": "注册规则创建接口测试-策略名称为空",
+    "test_case_data": {
+      "rule": {
+        "name": "",
+        "ruleType": 0,
+        "description": "",
+        "leftOperand": "dateTime",
+        "operator": "gteq",
+        "rightOperand": {
+          "value": "00:00:00"
+        }
+      },
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246",
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00"
+    }
+  },
+  "test_004_registration_create_rule_empty_operator": {
+    "test_case_desc": "注册规则创建接口测试-operator参数为空",
+    "test_case_data": {
+      "rule": {
+        "name": "测试策略operator为空2",
+        "ruleType": 0,
+        "description": "",
+        "leftOperand": "dateTime",
+        "operator": "",
+        "rightOperand": {
+          "value": "00:00:00"
+        }
+      },
+      "address": "ae7812225a15bc44542d5ab863ca4270158ed246",
+      "sid": "kms4b70297a4aaa13da2978dd4a495s00"
+    }
+  }
+}
