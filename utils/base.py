@@ -18,7 +18,18 @@ def get_test_data():
 
 class Base:
     """基础测试类，包含登录和浏览器管理"""
-    
+
+    @staticmethod
+    def _safe_page_load(page, timeout=30000):
+        """安全页面加载：依次尝试 networkidle → load → wait_for_timeout 容错"""
+        try:
+            page.wait_for_load_state("networkidle", timeout=timeout)
+        except Exception:
+            try:
+                page.wait_for_load_state("load", timeout=10000)
+            except Exception:
+                page.wait_for_timeout(3000)
+
     @classmethod
     def setup_class(cls):
         """类级别的设置，所有测试方法执行前只执行一次"""
@@ -182,8 +193,12 @@ class Base:
         if "login" not in current_url.lower():
             print(f"   [警告] 当前页面不是登录页面，正在导航到登录页面...")
             page.goto(login_url, timeout=30000)
-            page.wait_for_load_state("networkidle", timeout=30000)
+            cls._safe_page_load(page, timeout=30000)
             page.wait_for_timeout(2000)
+            # 导航后可能因已有Cookie自动重定向到非登录页，此时视为已登录
+            if "login" not in page.url.lower():
+                print(f"[登录] 已有有效会话，自动登录成功！当前URL: {page.url}")
+                return
         
         # 查找用户名输入框并输入
         print(f"   [调试] 正在查找用户名输入框...")

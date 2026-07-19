@@ -1,0 +1,1273 @@
+Starting UI tests at 周日 2026/07/19 22:01:23.52
+============================= test session starts =============================
+collecting ... collected 139 items
+
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_01_search_username 
+=== [类级别] 登录系统 ===
+   ✓ 已访问登录页面: http://192.168.0.183:30001/login
+[登录] 正在登录用户1到192.168.0.183:30001...
+   [调试] 正在查找用户名输入框...
+   [调试] 找到用户名输入框，正在输入用户名: superadmin
+   [调试] 正在查找密码输入框...
+   [调试] 找到密码输入框，正在输入密码...
+   [调试] 正在查找验证码输入框...
+   [调试] 找到验证码输入框，正在输入验证码: 987423
+   [调试] 正在查找登录按钮...
+   [调试] 找到登录按钮，正在点击...
+[登录] 前置条件 - 登录成功！用户名: superadmin, 登录地址: http://192.168.0.183:30001/login
+   ✓ 用户1登录成功
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试搜索用户名功能 ===
+   ✓ 输入搜索关键词: admin
+   ✓ 触发搜索
+   ✓ 搜索结果加载完成，共 1 条数据
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 搜索用户名功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_02_add_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试新增用户功能 ===
+   ✓ 准备创建用户: auto9kq4i
+   ✓ 点击新增用户按钮
+   --- 查看表单结构 ---
+   [调试] 表单结构: {'error': '未找到对话框'}
+   --- 填写密码字段 ---
+   ✓ 密码字段填写完成
+   --- 使用JavaScript填写表单 ---
+   ✓ JavaScript填写表单结果: {'success': False, 'message': '未找到对话框'}
+   --- 选择角色类型和角色名称 ---
+   [警告] 选择角色类型失败: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".el-dialog .el-select").first
+
+   [警告] 选择角色名称失败: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".el-dialog .el-select").nth(1)
+
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_02_add_user_20260719_220258_865.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220258_865.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_03_view_user_detail [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试查看用户详情功能 ===
+   [信息] 操作列有 4 个按钮，未找到详情按钮
+   [警告] 未找到详情按钮或链接
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 查看用户详情功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_04_edit_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试编辑用户功能 ===
+   ✓ 点击编辑按钮
+   [警告] 未找到昵称输入框
+   [警告] 未检测到成功提示
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 编辑用户功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_05_delete_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试删除用户功能 ===
+   [警告] 未找到删除按钮
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 删除用户功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_06_pagination [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试分页功能 ===
+   [信息] 下一页按钮不可用，可能已经是最后一页
+   ✓ 分页信息: 共 3 条
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 分页功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_07_reset_search [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试重置查询功能 ===
+   ✓ 输入搜索条件
+   ✓ 点击重置按钮
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_07_reset_search_20260719_220326_828.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220326_828.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_08_disable_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试禁用用户功能 ===
+   ✓ 点击禁用按钮
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_08_disable_user_20260719_220329_860.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220329_860.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_09_enable_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试启用用户功能 ===
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_09_enable_user_20260719_220331_341.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220331_341.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_10_add_user_validation [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试新增用户字段校验规则 ===
+   ✓ 点击新增用户按钮
+   ✓ 点击确定按钮（不填写任何字段）
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_10_add_user_validation_20260719_220337_433.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220337_433.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_11_username_must_start_with_auto [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试用户名必须以auto开头 ===
+   ✓ 点击新增用户按钮
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test002_user_management_rules_TestUserManagement_test_11_username_must_start_with_auto_20260719_220341_777.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220341_777.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_12_search_by_nickname [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== test_12 测试按昵称查询用户 ===
+   ✓ 输入昵称: 测试昵称
+   ✓ 点击查询按钮
+   ✓ 查询结果显示 3 条记录
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 按昵称查询测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_13_search_by_role_type [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== test_13 测试按角色类型查询用户 ===
+   ✓ 选择角色类型: 管理员
+   ✓ 点击查询按钮
+   ✓ 查询结果显示 3 条记录
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 按角色类型查询测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_14_edit_user_validation [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== test_14 测试编辑用户字段校验 ===
+   ✓ 点击编辑按钮
+   [警告] 未找到编辑弹窗
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 编辑用户字段校验测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_15_role_dependency_validation [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== test_15 测试角色类型与角色名称依赖关系 ===
+   ✓ 点击新增用户按钮
+   ✓ 选择角色类型: 管理员
+   ✓ 角色名称选项数量: 7
+   ✓ 选择角色类型: 普通业务员
+   ✓ 角色名称选项数量: 7
+   ✓ 关闭弹窗
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 角色类型与角色名称依赖关系测试完成！
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_01_page_elements 
+=== 登录（仅执行一次） ===
+[登录] 登录成功！当前URL: http://192.168.0.183:30001/admin/space/spatial-allocation-list
+   ✓ 用户1登录成功
+[前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试产品协议页面基本元素 ===
+   页面标题: 产品协议配置 | 数据要素流通平台
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   找到产品协议表格
+   找到新增协议按钮
+   找到查询按钮
+   找到重置按钮
+   找到分页组件
+   找到搜索输入框
+   找到表格列: 产品协议编号
+   找到表格列: 产品协议名称
+   找到表格列: 产品协议文件
+   找到表格列: 链上状态
+   找到表格列: 创建时间
+   找到表格列: 操作
+
+   输出第一行协议数据：
+     第1列: 3b88f697-4b50-4d2e-bf5b-2255e61d4522
+     第2列: abc7551738232
+     第3列: 930接口文档.docx930接口文档.docx
+     第4列: 未上链
+     第5列: 2026-07-19 21:48:55
+     第6列: 详情编辑删除发布
+   产品协议页面基本元素验证完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_02_publish_button_visibility_by_chain_status [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 检验产品协议列表发布按钮根据链上状态显示 ===
+   列表总记录数: 10
+   第1行: 状态='未上链', 有发布按钮
+   第2行: 状态='未上链', 有发布按钮
+   第3行: 状态='未上链', 有发布按钮
+   第4行: 状态='未上链', 有发布按钮
+   第5行: 状态='未上链', 有发布按钮
+   第6行: 状态='未上链', 有发布按钮
+   第7行: 状态='未上链', 有发布按钮
+   第8行: 状态='未上链', 有发布按钮
+   第9行: 状态='未上链', 有发布按钮
+   第10行: 状态='已上链', 无发布按钮
+   发布按钮根据链上状态正确显示！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_03_add_protocol_with_max_length_fields [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议最大长度字段 ===
+   产品协议名称/描述: 23CmEeh8CSkPtWXM5EbyhJPRXiOGagcf5MA7xyTstBjZnq4dza
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   点击新增协议按钮
+   已跳转到新增页面: http://192.168.0.183:30001/datamarket/product-manage/productProtocol/create
+   填充产品协议名称: 23CmEeh8CSkPtWXM5EbyhJPRXiOGagcf5MA7xyTstBjZnq4dza
+   填充产品协议描述: 23CmEeh8CSkPtWXM5EbyhJPRXiOGagcf5MA7xyTstBjZnq4dza
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+   保存后已返回列表页
+   找到新增协议行（第1行）
+   最大长度字段新增协议测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_04_add_and_publish_protocol [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议后发布 ===
+   设置输入值: abc5944949113
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: abc5944949113
+   填充产品协议描述: abc5944949113
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+   找到新增协议行（第1行）
+   点击发布按钮
+   发布后状态: 已上链
+   新增协议后发布测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_05_add_new_protocol [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议 ===
+   设置输入值: abc5637831834
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: abc5637831834
+   填充产品协议描述: abc5637831834
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+   找到新增协议行（第1行）
+   新增协议测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_06_query_protocol_by_name [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试根据协议名称查询 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: 测试查询 abc8521092416
+   填充产品协议描述: 测试查询 abc8521092416
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+   输入查询条件: 测试查询 abc8521092416
+   点击查询按钮
+   查询结果: 找到 1 条记录
+   根据协议名称查询测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_07_query_protocol_by_name_fuzzy [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试根据协议名称模糊查询 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: 模糊查询测试 abc6000962219
+   填充产品协议描述: 模糊查询测试 abc6000962219
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+   输入查询条件: 模糊查询测
+   点击查询按钮
+   模糊查询结果: 找到 5 条记录
+   模糊查询测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_08_query_protocol_by_chain_status [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试根据链上状态查询 ===
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_08_query_protocol_by_chain_status_20260719_220658_739.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220658_739.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_09_add_and_delete_protocol [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议后删除 ===
+   设置输入值: abc4111322480
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: abc4111322480
+   填充产品协议描述: abc4111322480
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_09_add_and_delete_protocol_20260719_220724_334.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220724_334.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_10_query_and_reset_filters [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试协议名称和链上状态筛选后查询和重置 ===
+   输入协议名称: 测试
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_10_query_and_reset_filters_20260719_220725_604.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220725_604.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_11_add_protocol_with_single_space_in_name [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议时协议名称包含一个空格 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: 测试 空格abc6235982329
+   填充产品协议描述: 测试 空格abc6235982329
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_11_add_protocol_with_single_space_in_name_20260719_220750_856.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220750_856.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_12_add_protocol_with_multiple_spaces_in_name [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议时协议名称包含多个空格 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: 测试  多个  空格abc4918107962
+   填充产品协议描述: 测试  多个  空格abc4918107962
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_12_add_protocol_with_multiple_spaces_in_name_20260719_220816_221.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220816_221.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_13_add_protocol_with_spaces_in_multiple_fields [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议时多个字段包含空格 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: 测试 多字段abc2652148724
+   填充产品协议描述: 描述 包含 空格 abc0984560255
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_13_add_protocol_with_spaces_in_multiple_fields_20260719_220841_723.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220841_723.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_14_add_protocol_with_angle_brackets_in_name [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试新增协议时协议名称包含《》 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   已跳转到新增页面: http://192.168.0.183:30001/datamarket/product-manage/productProtocol/create
+   填充产品协议名称: 测试《书名号》abc3977321454
+   填充产品协议描述: 测试《书名号》abc3977321454
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_14_add_protocol_with_angle_brackets_in_name_20260719_220851_281.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220851_281.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_15_sql_injection_in_protocol_name_query [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试协议名称查询时的SQL注入防护 ===
+   输入查询条件: ' OR '1'='1
+   点击查询按钮
+   SQL注入查询结果: 0 条记录
+   SQL注入防护测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_16_js_injection_in_protocol_name_query [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试协议名称查询时的JS注入防护 ===
+   输入查询条件: <script>alert('xss')</script>
+   点击查询按钮
+   JS注入查询结果: 0 条记录
+   JS注入防护测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_17_xss_injection_in_protocol_name_query [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试协议名称查询时的XSS注入防护 ===
+   输入查询条件: <img src=x onerror=alert('xss')>
+   点击查询按钮
+   XSS注入查询结果: 0 条记录
+   XSS注入防护测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_18_view_protocol_detail [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试查看协议详情 ===
+[成功] 测试数据已附加到HTML报告
+SKIPPED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_19_edit_protocol [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试编辑协议 ===
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   点击新增协议按钮
+   点击后URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   [提示] 未检测到页面跳转，直接导航到新增页面
+   填充产品协议名称: abc9293446306
+   填充产品协议描述: abc9293446306
+   上传文件: f:\sjystraceai\whh2026tarce01\docs\930接口文档.docx
+   点击确定按钮
+[成功] 测试数据已附加到HTML报告
+SKIPPED
+tests/ui_tests/test01_product_protocol.py::TestProductProtocol::test_20_add_protocol_direct [前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 直接访问新增协议页面测试 ===
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test01_product_protocol_TestProductProtocol_test_20_add_protocol_direct_20260719_220931_062.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_220931_062.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_01_page_elements 
+=== 登录（仅执行一次） ===
+[登录] 登录成功！当前URL: http://192.168.0.183:30001/admin/space/spatial-allocation-list
+   ✓ 用户1登录成功
+[前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试产品策略页面基本元素 ===
+   页面标题: 产品策略配置 | 数据要素流通平台
+   当前URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   ✅ 找到产品策略表格
+   ⚠️  未找到新增策略按钮
+   ✅ 找到查询按钮
+   ✅ 找到重置按钮
+   ✅ 找到分页组件
+   ✅ 找到产品策略名称输入框
+   ✅ 找到产品策略名称字段
+   ✅ 找到策略类型字段
+   ✅ 找到策略项目字段
+   ⚠️  未找到运算符字段
+   ✅ 找到值字段
+   ✅ 找到创建时间字段
+   ✅ 找到操作字段
+
+   输出第一行策略数据：
+     第1列: 测试 策略 strategy7439267241
+     第2列: 允许
+     第3列: 时间
+     第4列: ≥
+     第5列: 00:00:00
+     第6列: 2026-07-19 21:52:03
+     第7列: 详情编辑删除
+[成功] 测试数据已附加到HTML报告
+   ✅ 产品策略页面基本元素验证完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_02_add_strategy_with_normal_fields [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略（正常字段长度） ===
+   生成测试数据: strategy9019009162
+   点击新增策略按钮
+   填充策略名称: strategy9019009162
+   填充策略描述: strategy9019009162 d...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   [注意] 未检测到明确的保存成功提示
+   策略已在列表中找到（第1行）: strategy9019009162
+   策略创建成功验证通过！
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 新增策略（正常字段长度）测试通过！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_03_add_strategy_with_max_length_fields [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略（最大长度字段） ===
+   生成最大长度名称: NvsRChuDlLYBGktIVPNwdrOR962txSorQAw2QSC9pLFsQjJ6n7...(共50字符)
+   生成最大长度内容: fvpnzzoEWhjVMtP2Dfb0zfFZ
+
+OTHlTa1BP
+TqIqqDO1u8wpSlQEYctXVZ0FBmSRfubNKeBi7ksnrUFsWE KlfmyaG2D74d4S e18bzMSkNQXKbZt2nm2CeK9QVSfcyV4x8GXWiX8QrQOWJA2rK0WfMwafJtEqcJ6m3KENTf1Dv EV61b4e97tNA6Y
+JskcfHdIdtQP9BX7k5YKipaf0enwb4OVisBlUg5vhiUUzs 6OWYn2vf8LfATt9J9uja1bv
+l5N0IPq8So1lD  6sVnjUqzYT2pUh4C7uvruJEw771QSkF0KUUUz290qIN
+EGiQQQ5sG9Yooq2MGLMKHQzOXaq3OkIas5nDO4VSYXbVfDVTK5dYU3J6bTHsPAT11bgAzi yPENRBsuZnkTcjM3DH0Hp0HlH2zXmbdKY5o4U2SXi3r6guDBoJ7njCTnN470i7Jak4802gAYFGFhi
+FT7BdF4qYAB6XW55Yz8u0u KSDOJ6LfLHHQ1ZzYoU8K2Oi NHz fceHEgEQmlM 83I1J6VCZiKyuT9RSnScVXhqw2YQ4ax6tJ651lOurqccm0QuQNiiZElezWVMywg5mnMDyWHNotvcCyD7CqXCa0EpSOJHZxUdVHBfk1jSL8PdmsrtWvY2WD3GH 
+JwXfEowDB1mZst4AL2JiSzf6DNeS1YwtIm6J62BIwiYimN3Ohq 6KPhCtWDqXDEiroJx1dbs2YZynb e51PlBc0oxDUIyHvEkDuVQltH6yKo7
+3o9ieBa3phP kE Wgha7FN8h
+IxTdDCZFY86CGpZJrZeTKJmHyzjy9XuupPqyJxnpGGspc5oBOaHwiptlUW6QbA8TcC5vn p T8G2FMGnfqeY14kY2dXFKT3Z zHktDt586s2cStuqcHKtkid4wCFNm XoKRL2pwdmuAijStnngndL1b5XVmjW EIWrkDfopSyV998Xojhn9psYh9S6v8c8TBdMRta7sStoZx9nBDZLIuUn8CHiOWYZs0x6H0dIetNntkosy3VAaW8rvTz9c38S9m86k8asH3xoBDZ
+uMabcm10SHz
+KCi3FsDEm82lTVTbNxDZG1hokIwSiCU330fT4qSxFX7vAWs0AToP1xO
+MeQwpK1yeK
+imR6 mbYiKl9pdP2Ux17 YO1Ck15DZqLRjAh4mCUAVzmdII32QBcySnbwNRsL7Qka8ufPyXA
+o3iwrg4XyOB36Ohydl ZVtstejzJR9VVYsmae4GDpM
+WfyfVqTzwpo1sW
+T7aqDJ8pFtZOPtVkY0ah7agnxSy0
+6v29vqClXfP270jOAJXMg8uNJ1 NikYo66ZFrE9xDV2qktKQ6bbsdSBdFXHeno VdOf8tGQTFwwK5BpVHnMw1ogYZAJkq36oxRp4O3IW4IOz1l5gmRfV85oSCwbcEa6hD2BdD5DVFaXKnD
+MFlhx
+yWuJIAeylJa4hsGKLvjZASCbqoSgj0b1niy7FhE6OH3fiecZ7x9SEYdz1W2l8RBofVSow
+FsuPGFDCGHO7nKRaZ5lKFibsdZOK0SKf4ZdNo YCBueiPk7HS0B5zxuZI76uiFcOBAIB5NkbEdQcXLHwXZqxD8SKEC0T9mzu8cw3cmlYHnrUKyrdEoSS0qYuhjffj4zqpcEArSYSgv
+0voPcEAyJ43QvlTxyNXjfN6Iri4oU4Fty9LuQuyOMTjc95BhGj fjc2xb
+pDNfjIZs35rsuPHhus63 XCK5
+oDDGjGK4 9RL
+OBMs8rppZtZzBwrBpK7xJIJGtSEfR42aLX YCHaB0Jyabd9KJnHXcKAfPj k
+HXFGdcLLUv71xCP7d9K5mDCcoXR2NMU 5n4M2yTKEoVOBQoLSbymZXZV
+c
+95U0KR2XLojTfxGEuuQzBchV4utzohClCpZneO6jL9Mq5jHLFEj9opa8GfhtArbOSTmzwh38tjnRfem4hfNRL9T6lKHU46pKLU9cvpPRQ2I92ARt5DB1CDdWTticEEemh...(共2000字符)
+   点击新增策略按钮
+   填充策略名称: NvsRChuDlLYBGktIVPNw...
+   填充策略描述: fvpnzzoEWhjVMtP2Dfb0...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   策略已在列表中找到（第1行）: NvsRChuDlLYBGktIVPNwdrOR962txSorQAw2QSC9pLFsQjJ6n7
+   策略创建成功验证通过！
+   [测试完成] 新增策略（正常字段长度）测试通过！
+   [注意] 未检测到明确的保存成功提示
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 新增策略（最大长度字段）测试通过！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_04_add_and_delete_strategy [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略后立即删除 ===
+   生成测试数据: strategy7210641218
+
+   1. 开始新增产品策略
+   点击新增策略按钮
+   填充策略名称: strategy7210641218
+   填充策略描述: strategy7210641218
+   选择运算符: ≥
+   点击确定按钮保存策略
+
+   2. 查找刚添加的策略
+   找到新增策略行（第1行）
+
+   3. 开始删除策略
+   点击删除按钮
+   出现删除确认对话框
+   点击确认删除按钮
+
+   4. 验证策略已被删除
+   删除成功提示已显示
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 新增策略后删除测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_05_search_strategy_by_name [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试根据策略名称查询 ===
+   1. 获取第一行策略名称
+   获取到策略名称: NvsRChuDlLYBGktIVPNwdrOR962txSorQAw2QSC9pLFsQjJ6n7
+
+   2. 执行查询
+   尝试定位搜索输入框，使用选择器: input[placeholder='输入产品策略名称']
+   输入查询关键字: NvsRChuDlLYBGktIVPNwdrOR962txSorQAw2QSC9pLFsQjJ6n7
+   点击搜索按钮
+
+   3. 验证查询结果
+   查询结果：在第1行找到策略
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 根据策略名称查询测试通过！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_06_search_strategy_by_name_fuzzy [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试根据策略名称模糊查询 ===
+   1. 获取第一行策略名称
+   获取到策略名称: NvsRChuDlLYBGktIVPNwdrOR962txSorQAw2QSC9pLFsQjJ6n7
+
+   2. 提取模糊查询关键词: Nvs
+
+   3. 执行模糊查询
+   尝试定位搜索输入框，使用选择器: input[placeholder='输入产品策略名称']
+   输入查询关键字: Nvs
+   点击搜索按钮
+
+   4. 验证模糊查询结果
+   查询结果：在第1行找到策略，名称包含关键词'Nvs'
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 根据策略名称模糊查询测试通过！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_07_add_strategy_with_empty_name [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称为空的校验 ===
+   点击新增策略按钮
+   点击确定按钮保存策略
+   检测到验证提示: 产品策略名称不能为空
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 策略名称为空校验测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_08_add_strategy_with_empty_operator [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时运算符为空的校验 ===
+   点击新增策略按钮
+   填充策略名称: strategy1601851224
+   未选择运算符
+   点击确定按钮保存策略
+   检测到验证提示: 运算符不能为空
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 运算符为空校验测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_09_add_strategy_with_both_name_and_operator_empty [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称和运算符均为空的校验 ===
+   点击新增策略按钮
+   清空策略名称
+   确保未选择运算符
+   点击确定按钮保存策略
+   检测到验证提示: ['产品策略名称不能为空', '运算符不能为空']
+[成功] 测试数据已附加到HTML报告
+   [测试完成] 名称和运算符均为空校验测试完成！
+[成功] 测试数据已附加到HTML报告
+PASSED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_10_add_strategy_with_single_space_in_name [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称包含一个空格 ===
+   生成测试数据（包含一个空格）: 测试 strategy7610130018
+   点击新增策略按钮
+   填充策略名称: 测试 strategy761013001...
+   填充策略描述: 测试 strategy761013001...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   [注意] 未检测到明确的保存成功提示
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test02_product_strategy_TestProductStrategy_test_10_add_strategy_with_single_space_in_name_20260719_221153_742.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_221153_742.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_11_add_strategy_with_angle_brackets_in_name [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称包含《》 ===
+   生成测试数据（包含《》）: 《测试》strategy9454613647
+   点击新增策略按钮
+   填充策略名称: 《测试》strategy94546136...
+   填充策略描述: 《测试》strategy94546136...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   [注意] 未检测到明确的保存成功提示
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test02_product_strategy_TestProductStrategy_test_11_add_strategy_with_angle_brackets_in_name_20260719_221209_326.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_221209_326.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_12_add_strategy_with_multiple_spaces_in_name [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称包含多个空格 ===
+   生成测试数据（包含多个空格）: 测试  策略   strategy2946368384
+   点击新增策略按钮
+   填充策略名称: 测试  策略   strategy294...
+   填充策略描述: 测试  策略   strategy294...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   [注意] 未检测到明确的保存成功提示
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test02_product_strategy_TestProductStrategy_test_12_add_strategy_with_multiple_spaces_in_name_20260719_221224_998.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_221224_998.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test02_product_strategy.py::TestProductStrategy::test_13_add_strategy_with_spaces_in_multiple_fields [前置条件] 成功访问产品策略页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/strategy
+   页面标题: 产品策略配置 | 数据要素流通平台
+
+=== 测试新增策略时策略名称和描述都包含空格 ===
+   生成测试数据（名称包含空格）: 测试 策略 strategy8455457068
+   生成测试数据（描述包含空格）: 这是 测试 策略 描述 strategy3290611871
+   点击新增策略按钮
+   填充策略名称: 测试 策略 strategy845545...
+   填充策略描述: 这是 测试 策略 描述 strategy...
+   选择运算符: ≥
+   点击确定按钮保存策略
+   [注意] 未检测到明确的保存成功提示
+[成功] 测试数据已附加到HTML报告
+
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test02_product_strategy_TestProductStrategy_test_13_add_strategy_with_spaces_in_multiple_fields_20260719_221240_424.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_221240_424.png
+[成功] 截图已附加到HTML报告
+FAILED
+tests/ui_tests/test02_protocol_security_injection.py::TestProtocolSecurityInjection::test_01_sql_injection_in_protocol_name_query 
+=== 登录（仅执行一次） ===
+[登录] 登录成功！当前URL: http://192.168.0.183:30001/admin/space/spatial-allocation-list
+   ✓ 用户1登录成功
+[前置条件] 成功访问产品协议页面！
+   页面URL: http://192.168.0.183:30001/datamarket/product-manage/productProtocol
+   页面标题: 产品协议配置 | 数据要素流通平台
+
+=== 测试协议名称查询时的SQL注入防护 ===
+   共测试 75 个SQL注入用例
+   点击重置按钮
+
+   测试用例 1/75: ' OR '1'='1...
+   输入SQL注入payload: ' OR '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 2/75: ' OR '1'='1'--...
+   输入SQL注入payload: ' OR '1'='1'--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 3/75: ' OR '1'='1'/*...
+   输入SQL注入payload: ' OR '1'='1'/*...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 4/75: admin'--...
+   输入SQL注入payload: admin'--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 5/75: admin'/*...
+   输入SQL注入payload: admin'/*...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 6/75: ' UNION SELECT NULL--...
+   输入SQL注入payload: ' UNION SELECT NULL--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 7/75: ' UNION SELECT NULL,NULL--...
+   输入SQL注入payload: ' UNION SELECT NULL,NULL--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 8/75: 1' ORDER BY 1--...
+   输入SQL注入payload: 1' ORDER BY 1--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 9/75: 1' ORDER BY 2--...
+   输入SQL注入payload: 1' ORDER BY 2--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 10/75: '; DROP TABLE protocols--...
+   输入SQL注入payload: '; DROP TABLE protocols--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 11/75: '; DELETE FROM protocols--...
+   输入SQL注入payload: '; DELETE FROM protocols--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 12/75: '; UPDATE protocols SET name='hacked'--...
+   输入SQL注入payload: '; UPDATE protocols SET name='hacked'--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 13/75: '; INSERT INTO protocols VALUES('hacked')--...
+   输入SQL注入payload: '; INSERT INTO protocols VALUES('hacked')--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 14/75: ' AND 1=1--...
+   输入SQL注入payload: ' AND 1=1--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 15/75: ' AND 1=2--...
+   输入SQL注入payload: ' AND 1=2--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 16/75: ' OR 1=1--...
+   输入SQL注入payload: ' OR 1=1--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 17/75: ' OR 1=2--...
+   输入SQL注入payload: ' OR 1=2--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 18/75: admin' OR '1'='1...
+   输入SQL注入payload: admin' OR '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 19/75: admin' AND '1'='1...
+   输入SQL注入payload: admin' AND '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 20/75: 1' AND '1'='1...
+   输入SQL注入payload: 1' AND '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 21/75: 1' OR '1'='1...
+   输入SQL注入payload: 1' OR '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 22/75: ' OR 'a'='a...
+   输入SQL注入payload: ' OR 'a'='a...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 23/75: ' OR 'x'='x...
+   输入SQL注入payload: ' OR 'x'='x...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 24/75: ' OR 1=1#...
+   输入SQL注入payload: ' OR 1=1#...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 25/75: ' OR 1=1/*...
+   输入SQL注入payload: ' OR 1=1/*...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 26/75: admin' #...
+   输入SQL注入payload: admin' #...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 27/75: admin'/*...
+   输入SQL注入payload: admin'/*...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 28/75: ' OR '1'='1'='1...
+   输入SQL注入payload: ' OR '1'='1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 29/75: ' OR '1'='1' AND '1'='1...
+   输入SQL注入payload: ' OR '1'='1' AND '1'='1...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 30/75: ' UNION SELECT 1,2,3--...
+   输入SQL注入payload: ' UNION SELECT 1,2,3--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 31/75: ' UNION SELECT 1,2,3,4--...
+   输入SQL注入payload: ' UNION SELECT 1,2,3,4--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 32/75: ' UNION SELECT 1,2,3,4,5--...
+   输入SQL注入payload: ' UNION SELECT 1,2,3,4,5--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 33/75: ' UNION SELECT NULL,NULL,NULL,NULL,NULL--...
+   输入SQL注入payload: ' UNION SELECT NULL,NULL,NULL,NULL,NULL--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 34/75: ' UNION SELECT 'a','b','c','d','e'--...
+   输入SQL注入payload: ' UNION SELECT 'a','b','c','d','e'--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 35/75: 1' AND SLEEP(5)--...
+   输入SQL注入payload: 1' AND SLEEP(5)--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 36/75: 1' AND BENCHMARK(1000000,MD5(1))--...
+   输入SQL注入payload: 1' AND BENCHMARK(1000000,MD5(1))--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 37/75: ' AND pg_sleep(5)--...
+   输入SQL注入payload: ' AND pg_sleep(5)--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 38/75: ' AND WAITFOR DELAY '0:0:5'--...
+   输入SQL注入payload: ' AND WAITFOR DELAY '0:0:5'--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 39/75: 1'; EXEC xp_cmdshell('dir')--...
+   输入SQL注入payload: 1'; EXEC xp_cmdshell('dir')--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 40/75: 1'; EXEC sp_configure 'show advanced options',1--...
+   输入SQL注入payload: 1'; EXEC sp_configure 'show advanced options',1--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 41/75: 1' AND 1=1 IN (SELECT 1)--...
+   输入SQL注入payload: 1' AND 1=1 IN (SELECT 1)--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 42/75: 1' AND 1=1 IN (SELECT * FROM information_schema.ta...
+   输入SQL注入payload: 1' AND 1=1 IN (SELECT * FROM information_schema.ta...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 43/75: 1' AND 1=1 IN (SELECT * FROM sys.tables)--...
+   输入SQL注入payload: 1' AND 1=1 IN (SELECT * FROM sys.tables)--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 44/75: 1' AND (SELECT COUNT(*) FROM information_schema.ta...
+   输入SQL注入payload: 1' AND (SELECT COUNT(*) FROM information_schema.ta...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 45/75: 1' AND (SELECT COUNT(*) FROM sys.tables)>0--...
+   输入SQL注入payload: 1' AND (SELECT COUNT(*) FROM sys.tables)>0--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 46/75: ' OR (SELECT COUNT(*) FROM information_schema.tabl...
+   输入SQL注入payload: ' OR (SELECT COUNT(*) FROM information_schema.tabl...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 47/75: ' OR (SELECT COUNT(*) FROM sys.tables)>0--...
+   输入SQL注入payload: ' OR (SELECT COUNT(*) FROM sys.tables)>0--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 48/75: 1' AND (SELECT COUNT(*) FROM protocols)>0--...
+   输入SQL注入payload: 1' AND (SELECT COUNT(*) FROM protocols)>0--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 49/75: ' OR (SELECT COUNT(*) FROM protocols)>0--...
+   输入SQL注入payload: ' OR (SELECT COUNT(*) FROM protocols)>0--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 50/75: 1' AND (SELECT 1 FROM protocols LIMIT 1)=1--...
+   输入SQL注入payload: 1' AND (SELECT 1 FROM protocols LIMIT 1)=1--...
+   点击查询按钮
+   ✓ 查询正常，返回 0 条记录
+
+   测试用例 51/75: ' OR (SELECT 1 FROM protocols LIMIT 1)=1--...
++++++++++++++++++++++++++++++++++++ Timeout +++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~ Stack of MainThread (33356) ~~~~~~~~~~~~~~~~~~~~~~~~~
+  File "C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Python314\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+  File "C:\Python314\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+  File "C:\Python314\Lib\asyncio\base_events.py", line 2008, in _run_once
+    event_list = self._selector.select(timeout)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 446, in select
+    self._poll(timeout)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 775, in _poll
+    status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
++++++++++++++++++++++++++++++++++++ Timeout +++++++++++++++++++++++++++++++++++
+Tests completed at 周日 2026/07/19 22:15:41.02
+Exit code: 1

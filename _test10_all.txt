@@ -1,0 +1,166 @@
+============================= test session starts =============================
+collecting ... collected 12 items
+
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_01_access_page_and_title_check PASSED [  8%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_02_verify_table_column_headers PASSED [ 16%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_03_search_by_order_number_exact PASSED [ 25%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_04_search_by_product_name_fuzzy PASSED [ 33%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_05_search_by_order_number_nonexist PASSED [ 41%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_06_search_by_product_name_exact PASSED [ 50%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_07_filter_by_order_status 
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test10_publisher_order_list_page_TestPublisherOrderListPage_test_07_filter_by_order_status_20260719_210442_175.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_210442_175.png
+[警告] pytest-html extras模块不可用，截图未附加到HTML报告
+FAILED [ 58%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_08_filter_by_subcategory PASSED [ 66%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_09_reset_search PASSED [ 75%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_10_combined_search PASSED [ 83%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_11_view_order_detail 
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test10_publisher_order_list_page_TestPublisherOrderListPage_test_11_view_order_detail_20260719_210622_262.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_210622_262.png
+[警告] pytest-html extras模块不可用，截图未附加到HTML报告
+FAILED [ 91%]
+tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_12_explore_dialog_features 
+[截图] 测试失败，截图已保存：reports/screenshots\ui_tests_test10_publisher_order_list_page_TestPublisherOrderListPage_test_12_explore_dialog_features_20260719_210712_777.png
+
+[错误] 截图保存失败：module 'allure' has no attribute 'attachment_type'
+[截图] 备用截图已保存：reports/screenshots\fallback_20260719_210712_777.png
+[警告] pytest-html extras模块不可用，截图未附加到HTML报告
+FAILED [100%]
+
+================================== FAILURES ===================================
+E   playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator(".el-select-dropdown__item:has-text(\"待支付\")").first
+        - locator resolved to <li role="option" id="el-id-6736-16" aria-selected="false" class="el-select-dropdown__item">…</li>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+          - waiting 100ms
+        58 × waiting for element to be visible, enabled and stable
+           - element is not visible
+         - retrying click action
+           - waiting 500ms
+---------------------------- Captured stdout setup ----------------------------
+[登录] 正在登录用户1到192.168.0.183:30001...
+   [调试] 正在查找用户名输入框...
+   [调试] 找到用户名输入框，正在输入用户名: superadmin
+   [调试] 正在查找密码输入框...
+   [调试] 找到密码输入框，正在输入密码...
+   [调试] 正在查找验证码输入框...
+   [调试] 找到验证码输入框，正在输入验证码: 987423
+   [调试] 正在查找登录按钮...
+   [调试] 找到登录按钮，正在点击...
+[登录] 前置条件 - 登录成功！用户名: superadmin, 登录地址: http://192.168.0.183:30001/login
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\playwright\_impl\_connection.py:559: playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+E   AssertionError: 详情弹窗未打开: {'open': False}
+    assert False
+     +  where False = <built-in method get of dict object at 0x0000019BE4BE9840>('open')
+     +    where <built-in method get of dict object at 0x0000019BE4BE9840> = {'open': False}.get
+---------------------------- Captured stdout setup ----------------------------
+[登录] 正在登录用户1到192.168.0.183:30001...
+   [调试] 正在查找用户名输入框...
+   [调试] 找到用户名输入框，正在输入用户名: superadmin
+   [调试] 正在查找密码输入框...
+   [调试] 找到密码输入框，正在输入密码...
+   [调试] 正在查找验证码输入框...
+   [调试] 找到验证码输入框，正在输入验证码: 987423
+   [调试] 正在查找登录按钮...
+   [调试] 找到登录按钮，正在点击...
+[登录] 前置条件 - 登录成功！用户名: superadmin, 登录地址: http://192.168.0.183:30001/login
+f:\sjystraceai\whh2026tarce01\tests\ui_tests\test10_publisher_order_list_page.py:301: AssertionError: 详情弹窗未打开: {'open': False}
+E   playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for locator(".el-select-dropdown__item:has-text(\"待支付\")").first
+        - locator resolved to <li role="option" id="el-id-9536-16" aria-selected="false" class="el-select-dropdown__item">…</li>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not visible
+        - retrying click action
+          - waiting 100ms
+        58 × waiting for element to be visible, enabled and stable
+           - element is not visible
+         - retrying click action
+           - waiting 500ms
+---------------------------- Captured stdout setup ----------------------------
+[登录] 正在登录用户1到192.168.0.183:30001...
+   [调试] 正在查找用户名输入框...
+   [调试] 找到用户名输入框，正在输入用户名: superadmin
+   [调试] 正在查找密码输入框...
+   [调试] 找到密码输入框，正在输入密码...
+   [调试] 正在查找验证码输入框...
+   [调试] 找到验证码输入框，正在输入验证码: 987423
+   [调试] 正在查找登录按钮...
+   [调试] 找到登录按钮，正在点击...
+[登录] 前置条件 - 登录成功！用户名: superadmin, 登录地址: http://192.168.0.183:30001/login
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\playwright\_impl\_connection.py:559: playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+============================== warnings summary ===============================
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\allure\common.py:22
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\allure\common.py:22
+  C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\allure\common.py:22: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if StrictVersion(pytest_version) >= StrictVersion("3.2.0"):
+
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\_pytest\config\__init__.py:1428
+  C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\_pytest\config\__init__.py:1428: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\_pytest\config\__init__.py:1428
+  C:\Users\hehey\AppData\Roaming\Python\Python314\site-packages\_pytest\config\__init__.py:1428: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_07_filter_by_order_status - playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".el-select-dropdown__item:has-text(\"待支付\")").first
+    - locator resolved to <li role="option" id="el-id-6736-16" aria-selected="false" class="el-select-dropdown__item">…</li>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    58 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+FAILED tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_11_view_order_detail - AssertionError: 详情弹窗未打开: {'open': False}
+assert False
+ +  where False = <built-in method get of dict object at 0x0000019BE4BE9840>('open')
+ +    where <built-in method get of dict object at 0x0000019BE4BE9840> = {'open': False}.get
+FAILED tests/ui_tests/test10_publisher_order_list_page.py::TestPublisherOrderListPage::test_12_explore_dialog_features - playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".el-select-dropdown__item:has-text(\"待支付\")").first
+    - locator resolved to <li role="option" id="el-id-9536-16" aria-selected="false" class="el-select-dropdown__item">…</li>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    58 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+============= 3 failed, 9 passed, 4 warnings in 362.06s (0:06:02) =============

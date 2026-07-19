@@ -1,0 +1,60 @@
+============================= test session starts =============================
+collecting ... collected 139 items
+
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_01_search_username 
+=== [类级别] 登录系统 ===
+   ✓ 已访问登录页面: http://192.168.0.183:30001/login
+[登录] 正在登录用户1到192.168.0.183:30001...
+   [调试] 正在查找用户名输入框...
+   [调试] 找到用户名输入框，正在输入用户名: superadmin
+   [调试] 正在查找密码输入框...
+   [调试] 找到密码输入框，正在输入密码...
+   [调试] 正在查找验证码输入框...
+   [调试] 找到验证码输入框，正在输入验证码: 987423
+   [调试] 正在查找登录按钮...
+   [调试] 找到登录按钮，正在点击...
+[登录] 前置条件 - 登录成功！用户名: superadmin, 登录地址: http://192.168.0.183:30001/login
+   ✓ 用户1登录成功
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试搜索用户名功能 ===
+   ✓ 输入搜索关键词: admin
+   ✓ 触发搜索
+   ✓ 搜索结果加载完成，共 1 条数据
+
+=== 重置页面状态 ===
+[前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+   ✓ 页面已重置
+   [测试完成] 搜索用户名功能测试完成！
+PASSED
+tests/ui_tests/test002_user_management_rules.py::TestUserManagement::test_02_add_user [前置条件] 成功访问用户列表页面！
+   页面URL: http://192.168.0.183:30001/admin/userManage/user-list?user-list=%257B%2522pageNumber%2522%253A1%252C%2522pageSize%2522%253A10%257D
+
+=== 页面元素检查 ===
+   ✓ 页面标题: 用户信息 | 数据要素流通平台
+   ✓ 页面内容包含用户管理相关内容
+   ✓ 搜索框存在 (input[placeholder*='用户名'])
+   ✓ 新增用户按钮存在 (button:has-text('新增用户'))
+   ✓ 用户列表表格存在 (.el-table)
+   [页面检查完成]
+
+=== 测试新增用户功能 ===
+   ✓ 准备创建用户: autom6hj4
+   ✓ 点击新增用户按钮
+   --- 查看表单结构 ---
+   [调试] 表单结构: {'error': '未找到对话框'}
+   --- 填写密码字段 ---
+   ✓ 密码字段填写完成
+   --- 使用JavaScript填写表单 ---
+   ✓ JavaScript填写表单结果: {'success': False, 'message': '未找到对话框'}
+   --- 选择角色类型和角色名称 ---
