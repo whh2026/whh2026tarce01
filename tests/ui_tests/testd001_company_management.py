@@ -2,6 +2,7 @@ import pytest
 import time
 import random
 import string
+from playwright.sync_api import sync_playwright
 from utils.base import Base
 from tests.ui_tests.config import ui_config
 

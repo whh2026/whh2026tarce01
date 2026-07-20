@@ -1086,6 +1086,8 @@ class Base:
         if self.page.is_visible("input[placeholder='输入数据产品名称']"):
             self.page.fill("input[placeholder='输入数据产品名称']", test_data["name"])
             time.sleep(3)  # 等待页面加载
+        # 默认使用产品名称，避免查询按钮不可见时 text_content 未定义
+        text_content = test_data["name"]
         if self.page.is_visible("//span[text()='查询']"):
             self.page.click("//span[text()='查询']")
             time.sleep(3)  # 等待页面加载
@@ -1620,6 +1622,8 @@ class Base:
         if self.page.is_visible("input[placeholder='输入数据产品名称']"):
             self.page.fill("input[placeholder='输入数据产品名称']", test_data["name"])
             time.sleep(3)
+        # 默认使用产品名称，避免查询按钮不可见时 text_content 未定义
+        text_content = test_data["name"]
         if self.page.is_visible("//span[text()='查询']"):
             self.page.click("//span[text()='查询']")
             time.sleep(3)
