@@ -42,7 +42,7 @@ SELECTORS = {
     "clear_search_button": "button:has-text('重置')",
 
     # 链上状态筛选
-    "chain_status_filter": "label:has-text('链上状态') + div .el-select, div:has-text('链上状态') + div .el-select",
+    "chain_status_filter": "label:has-text('链上状态') + div .el-select",
     "chain_status_option": ".el-select-dropdown__item:has-text('{status}'), [role='option']:has-text('{status}')",
 
     # 确认对话框选择器

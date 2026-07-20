@@ -65,7 +65,7 @@ class TestProductProtocol(Base):
             type(self)._logged_in = True
 
         # 导航到产品协议页面
-        if method.__name__ == "test_add_new_protocol_direct":
+        if "direct" in method.__name__ or method.__name__.endswith("add_protocol_direct"):
             self.product_protocol_url = self.get_url_for_user(1, "/datamarket/product-manage/productProtocol/create", self.CONFIG.USER_IPS)
         else:
             self.product_protocol_url = self.get_url_for_user(1, "/datamarket/product-manage/productProtocol", self.CONFIG.USER_IPS)
@@ -186,7 +186,10 @@ class TestProductProtocol(Base):
                 create_url = self.get_url_for_user(1, "/datamarket/product-manage/productProtocol/create", self.CONFIG.USER_IPS)
                 self.page.goto(create_url)
                 self.page.wait_for_load_state("networkidle")
-                self.page.wait_for_timeout(2000)
+                # 整页加载后 JS 可能尚未初始化，显式等待表单与提交按钮就绪，避免提交失败
+                self.page.locator(SELECTORS["name_input"]).first.wait_for(state="visible", timeout=10000)
+                self.page.locator(SELECTORS["confirm_button"]).first.wait_for(state="visible", timeout=10000)
+                self.page.wait_for_timeout(1000)
 
     def _fill_add_form(self, name, desc=None, upload_file=True):
         """填写新增协议表单"""
@@ -233,17 +236,31 @@ class TestProductProtocol(Base):
             print("   [警告] 未找到确定按钮")
 
     def _find_row_by_name(self, name):
-        """根据名称在表格中查找行"""
+        """根据名称在表格中查找行（首屏找不到时用名称搜索兜底，覆盖列表分页场景）"""
+        # 先在首屏查找
         rows = self.page.locator(SELECTORS["table_rows"])
         total = rows.count()
         for idx in range(total):
             row = rows.nth(idx)
-            # 检查第2列（产品协议名称）
             name_cell = row.locator("td:nth-child(2)")
-            if name_cell.count() > 0:
-                cell_text = name_cell.text_content() or ""
-                if name in cell_text:
-                    return row, idx
+            if name_cell.count() > 0 and name in (name_cell.text_content() or ""):
+                return row, idx
+        # 首屏未找到，使用名称搜索过滤后查找（可跨分页定位）
+        try:
+            search_input = self.page.locator(SELECTORS["search_input"])
+            if search_input.count() > 0:
+                search_input.fill(name)
+                self.page.locator(SELECTORS["search_button"]).first.click()
+                self.page.wait_for_timeout(2000)
+                rows = self.page.locator(SELECTORS["table_rows"])
+                total = rows.count()
+                for idx in range(total):
+                    row = rows.nth(idx)
+                    name_cell = row.locator("td:nth-child(2)")
+                    if name_cell.count() > 0 and name in (name_cell.text_content() or ""):
+                        return row, idx
+        except Exception as e:
+            print(f"   [警告] 搜索兜底查找失败: {str(e)}")
         return None, -1
 
     def _search_by_name(self, name):
