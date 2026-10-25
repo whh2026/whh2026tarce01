@@ -9,8 +9,8 @@ class UIConfig:
 
     # 用户IP映射配置
     USER_IPS = {
-        1: os.getenv("UI_USER_1_IP", "192.168.0.183:30001"),
-        2: os.getenv("UI_USER_2_IP", "192.168.0.185:30001")
+        1: os.getenv("UI_USER_1_IP", "192.168.0.183:30100"),
+        2: os.getenv("UI_USER_2_IP", "192.168.0.185:30200")
     }
     
     # 默认用户ID

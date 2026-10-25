@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>用例文案质量检查报告</title><style>
+:root{--ink:#1f2937;--sub:#6b7280;--line:#e5e7eb;--bg:#f6f8fb;--brand:#1d4ed8;
+--red:#b91c1c;--amber:#b45309;--green:#047857;--card:#ffffff;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:14px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 64px}
+header.hero{background:linear-gradient(135deg,#1e3a8a,#1d4ed8 60%,#3b82f6);
+color:#fff;border-radius:14px;padding:34px 36px;box-shadow:0 12px 30px rgba(29,78,216,.22)}
+header.hero h1{margin:0 0 8px;font-size:26px;letter-spacing:.5px}
+header.hero p{margin:0;opacity:.9;font-size:13px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:18px;font-size:13px}
+.meta span b{font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:22px 0 6px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpi .n{font-size:26px;font-weight:700;line-height:1.2}
+.kpi .t{font-size:12px;color:var(--sub);margin-top:4px}
+.kpi.warn .n{color:var(--amber)} .kpi.bad .n{color:var(--red)} .kpi.ok .n{color:var(--green)}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-top:20px}
+h2{font-size:18px;margin:0 0 14px;padding-left:11px;border-left:4px solid var(--brand)}
+h3{font-size:15px;margin:22px 0 10px;color:#111827}
+h3:first-of-type{margin-top:6px}
+p{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:#eef2ff;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:#fafbfe}
+code{background:#f3f4f6;border-radius:4px;padding:1px 5px;font-size:12px;
+font-family:Consolas,"Courier New",monospace;color:#111827}
+.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:11.5px;
+font-weight:600;white-space:nowrap}
+.tag.red{background:#fee2e2;color:var(--red)}
+.tag.amber{background:#fef3c7;color:var(--amber)}
+.tag.blue{background:#dbeafe;color:var(--brand)}
+.tag.green{background:#d1fae5;color:var(--green)}
+.bar{height:9px;border-radius:999px;background:#eef1f6;overflow:hidden;min-width:90px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#3b82f6,#1d4ed8)}
+.quote{background:#f8fafc;border-left:3px solid #cbd5e1;padding:8px 12px;margin:6px 0;
+border-radius:0 6px 6px 0;font-size:12.5px;color:#334155;white-space:pre-wrap;word-break:break-word}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.note{font-size:12.5px;color:var(--sub)}
+ul{margin:8px 0 8px 18px;padding:0} li{margin:5px 0}
+footer{text-align:center;color:var(--sub);font-size:12px;margin-top:26px}
+@media print{body{background:#fff}section{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header class="hero">
+<h1>数据要素流通平台 · 功能测试报告 — 用例文案质量检查报告</h1>
+<p>检查对象：第 5 章「功能测试记录」中 申请审批管理 / 订单管理 / 交付管理 三章全部用例</p>
+<div class="meta">
+<span>被测文档：<b>数据要素流通平台-V520-功能测试报告-V1.0-202610223-whh.docx</b></span>
+<span>检查日期：<b>2026-10-23</b></span>
+<span>检查方式：<b>全文逐条人工审读 + 规则扫描</b></span>
+</div></header>
+<div class="kpis">
+<div class="kpi"><div class="n">234</div><div class="t">检查用例总数</div></div>
+<div class="kpi bad"><div class="n">150</div><div class="t">存在问题用例</div></div>
+<div class="kpi warn"><div class="n">169</div><div class="t">问题条目总数</div></div>
+<div class="kpi warn"><div class="n">108</div><div class="t">步骤编号缺失用例</div></div>
+<div class="kpi ok"><div class="n">0</div><div class="t">错别字</div></div>
+</div>
+<section><h2>1 检查范围与判定口径</h2>
+<p>覆盖第 5 章下 <b>6 个二级模块、12 个功能小节</b>的全部用例，按“用例名称 / 操作步骤 / 期望结果 / 实际结果”四列逐条核对，并与被测系统实际页面文案（按钮名、状态名、字段名、弹窗结构）交叉比对。</p>
+<table><thead><tr><th>判定类别</th><th>判定标准</th><th>严重度</th></tr></thead><tbody>
+<tr><td>步骤编号缺失</td><td>操作步骤为多步，但仅第一步带 1．编号，后续步骤无编号且无标点分隔</td><td><span class="tag red">高</span></td></tr>
+<tr><td>与实现/术语不一致</td><td>描述中的按钮名、状态名、弹窗结构、页面功能与实际系统不符，照此执行会导致误判</td><td><span class="tag red">高</span></td></tr>
+<tr><td>字段名不统一</td><td>同一页面或同一张表内字段用全称/简称混用，或与列表表头不一致</td><td><span class="tag amber">中</span></td></tr>
+<tr><td>语句不通顺</td><td>缺中心词、指代不明、动作连写无标点、前置条件不可构造</td><td><span class="tag amber">中</span></td></tr>
+<tr><td>模板占位残留</td><td>“如编号中段或名称关键字”等模板示例未按实际字段替换</td><td><span class="tag blue">低</span></td></tr>
+<tr><td>名称与小节不匹配</td><td>查询用例并入“列表”小节后，名称仍以“验证按…查询”开头</td><td><span class="tag blue">低</span></td></tr>
+<tr><td>记录/格式规范</td><td>期望结果句末标点不统一；实际结果仅写“与预期一致”，缺乏实测现象记录</td><td><span class="tag blue">低</span></td></tr>
+</tbody></table></section>
+<section><h2>2 问题分布</h2><table><thead><tr><th style="width:26%">问题类别</th><th style="width:10%">条目数</th><th style="width:12%">涉及用例</th><th>占比</th></tr></thead><tbody>
+<tr><td>步骤编号缺失</td><td>108</td><td>108</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
+<tr><td>与实现/术语不一致</td><td>23</td><td>23</td><td><div class="bar"><i style="width:21%"></i></div></td></tr>
+<tr><td>字段名不统一</td><td>8</td><td>7</td><td><div class="bar"><i style="width:7%"></i></div></td></tr>
+<tr><td>语句不通顺</td><td>15</td><td>15</td><td><div class="bar"><i style="width:13%"></i></div></td></tr>
+<tr><td>模板占位残留</td><td>12</td><td>12</td><td><div class="bar"><i style="width:11%"></i></div></td></tr>
+<tr><td>名称与所在小节不匹配</td><td>1</td><td>1</td><td><div class="bar"><i style="width:0%"></i></div></td></tr>
+<tr><td>记录/格式规范（批量）</td><td>2</td><td>232</td><td><div class="bar"><i style="width:1%"></i></div></td></tr>
+<tr><td><b>合计</b></td><td><b>169</b></td><td><b>150</b></td><td></td></tr>
+</tbody></table>
+<p class="note">注：部分用例同时命中多个类别，故“涉及用例”合计小于各类之和；错别字项经全量词表比对未发现。</p></section>
+<section><h2>3 问题明细</h2>
+<h3>3.1 步骤编号缺失（108 条用例）</h3>
+<p>多步用例的“操作步骤”中只有第一步带编号，第 2、3 步既无编号也无标点，整段连成一句，执行时容易漏步。示例：</p>
+<div class="quote">1．进入“产品交易-数据使用申请”页面
+在“申请单编号”输入框中输入该字段的连续片段（如编号中段或名称关键字）
+点击“查询”，查看结果列表</div>
+<p class="note">上例共 3 步，实际仅第 1 步有“1．”，第 2、3 步无编号。</p>
+<table><thead><tr><th style="width:34%">章节</th><th style="width:14%">缺号用例数</th><th>典型用例编号</th></tr></thead><tbody>
+<tr><td>交付管理 / 数据供方交付</td><td>26</td><td><code>DPM_GFJFCX_008</code>、<code>DPM_GFJFCX_009</code>、<code>DPM_GFJFCX_010</code></td></tr>
+<tr><td>交付管理 / 数据需方交付</td><td>22</td><td><code>DPM_XFJFCX_008</code>、<code>DPM_XFJFCX_009</code>、<code>DPM_XFJFCX_010</code></td></tr>
+<tr><td>订单管理 / 数据购买订单</td><td>18</td><td><code>DPM_GMDDCX_008</code>、<code>DPM_GMDDCX_009</code>、<code>DPM_GMDDCX_010</code></td></tr>
+<tr><td>订单管理 / 数据销售订单</td><td>18</td><td><code>DPM_XSDDCX_008</code>、<code>DPM_XSDDCX_009</code>、<code>DPM_XSDDCX_010</code></td></tr>
+<tr><td>申请审批管理 / 数据使用申请</td><td>12</td><td><code>DPM_SJSYSQDCX_007</code>、<code>DPM_SJSYSQDCX_008</code>、<code>DPM_SJSYSQDCX_009</code></td></tr>
+<tr><td>申请审批管理 / 数据使用审批</td><td>12</td><td><code>DPM_SJSYSPDCX_007</code>、<code>DPM_SJSYSPDCX_008</code>、<code>DPM_SJSYSPDCX_009</code></td></tr>
+</tbody></table>
+<p class="note">口径说明：本节统计仅覆盖本次检查范围（申请审批管理 / 订单管理 / 交付管理 三章）共 108 条；若将 5.1 数据产品大厅的查询类用例一并计入，全文缺号用例为 133 条。</p>
+<h3>3.2 与系统实际不符 / 术语不一致（23 条）</h3>
+<p>以下描述与实测页面文案或控件结构不一致，按现有文字执行会得到错误结论：</p>
+<table><thead><tr><th style="width:16%">用例编号</th><th style="width:24%">现有写法</th><th style="width:32%">实际情况</th><th>建议改法</th></tr></thead><tbody>
+<tr><td><code>DPM_SJSYSQDXQ_003</code><br><span class="note">申请详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_SJSYXD_002</code><br><span class="note">下单</span></td><td>驳回</td><td>术语与实际不一致（页面为“拒绝/已拒绝”）</td><td>统一为“拒绝/已拒绝”</td></tr>
+<tr><td><code>DPM_SJSYXD_004</code><br><span class="note">下单</span></td><td>使用期限</td><td>下单弹窗无“使用期限”字段</td><td>删除该字段相关步骤，仅保留购买数量校验</td></tr>
+<tr><td><code>DPM_SJSYSPDXQ_003</code><br><span class="note">审批详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_SJSYSPDSP_002</code><br><span class="note">去审批</span></td><td>驳回</td><td>术语与实际不一致（页面为“拒绝/已拒绝”）</td><td>统一为“拒绝/已拒绝”</td></tr>
+<tr><td><code>DPM_SJSYSPDSP_003</code><br><span class="note">去审批</span></td><td>“审批”入口</td><td>按钮实际文案为“去审批”</td><td>改为“去审批”入口</td></tr>
+<tr><td><code>DPM_SJSYSPDSP_004</code><br><span class="note">去审批</span></td><td>驳回</td><td>术语与实际不一致（页面为“拒绝/已拒绝”）</td><td>统一为“拒绝/已拒绝”</td></tr>
+<tr><td><code>DPM_GMDDXQ_003</code><br><span class="note">订单详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_GMDDSCPZ_001</code><br><span class="note">上传支付凭证</span></td><td>待确认收款</td><td>订单状态实际为“已支付待确认”</td><td>改为“已支付待确认”</td></tr>
+<tr><td><code>DPM_GMDDSCPZ_003</code><br><span class="note">上传支付凭证</span></td><td>jpg/png</td><td>实际上传提示为 PNG/JPG/JPEG，且限制 2MB</td><td>改为“仅支持 PNG/JPG/JPEG，且不超过 2MB”</td></tr>
+<tr><td><code>DPM_GMDDQXDD_001</code><br><span class="note">取消订单</span></td><td>已取消</td><td>订单状态实际为“订单取消”</td><td>改为“订单取消”</td></tr>
+<tr><td><code>DPM_GMDDQXDD_002</code><br><span class="note">取消订单</span></td><td>已完成</td><td>订单状态实际为“订单完成”</td><td>改为“订单完成”</td></tr>
+<tr><td><code>DPM_GMDDQXDD_003</code><br><span class="note">取消订单</span></td><td>已取消</td><td>订单状态实际为“订单取消”</td><td>改为“订单取消”</td></tr>
+<tr><td><code>DPM_XSDDXQ_003</code><br><span class="note">订单详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_XSDDQRK_001</code><br><span class="note">确认收款</span></td><td>已完成</td><td>订单状态实际为“订单完成”</td><td>改为“订单完成”</td></tr>
+<tr><td><code>DPM_XSDDQRK_003</code><br><span class="note">确认收款</span></td><td>已完成</td><td>订单状态实际为“订单完成”</td><td>改为“订单完成”</td></tr>
+<tr><td><code>DPM_XFJFXQ_003</code><br><span class="note">交付详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_XFJFJKTS_001</code><br><span class="note">接口调试</span></td><td>“发送”按钮</td><td>按钮实际文案为“发起调用”</td><td>改为“点击‘发起调用’”，共 2 处</td></tr>
+<tr><td><code>DPM_XFJFJKTS_003</code><br><span class="note">接口调试</span></td><td>“发送”按钮</td><td>按钮实际文案为“发起调用”</td><td>改为“点击‘发起调用’”，共 2 处</td></tr>
+<tr><td><code>DPM_XFJFJKTS_004</code><br><span class="note">接口调试</span></td><td>“发送”按钮</td><td>按钮实际文案为“发起调用”</td><td>改为“点击‘发起调用’”，共 2 处</td></tr>
+<tr><td><code>DPM_XFJFJL_001</code><br><span class="note">记录</span></td><td>状态流转记录</td><td>该页实为“计费次数记录”（统计周期+计费次数）</td><td>按功能清单改为“计费次数记录”</td></tr>
+<tr><td><code>DPM_GFJFXQ_003</code><br><span class="note">交付详情</span></td><td>“关闭”按钮</td><td>详情为独立页面，实测无“关闭”按钮</td><td>改为“点击面包屑返回列表”或删除该用例</td></tr>
+<tr><td><code>DPM_GFJFJL_001</code><br><span class="note">记录</span></td><td>状态流转记录</td><td>该页实为“计费次数记录”（统计周期+计费次数）</td><td>按功能清单改为“计费次数记录”</td></tr>
+</tbody></table>
+<h3>3.3 字段名 / 命名不统一（8 条）</h3>
+<table><thead><tr><th style="width:16%">用例编号</th><th style="width:46%">问题</th><th>建议</th></tr></thead><tbody>
+<tr><td><code>DPM_SJSYSQDLB_001</code></td><td>列表期望写“申请状态”，同表 002 写“审批状态”</td><td>统一为“审批状态”</td></tr>
+<tr><td><code>DPM_SJSYSQDLB_002</code></td><td>字段用简称“产品名称、提供方”，同表 001 用全称</td><td>同表内统一全称或简称</td></tr>
+<tr><td><code>DPM_GMDDLB_001</code></td><td>写“创建时间”，实际列名为“下单时间”</td><td>改为“下单时间”</td></tr>
+<tr><td><code>DPM_GMDDLB_002</code></td><td>字段清单漏“产品类型/购买数量/上链状态”</td><td>按实际表头补全</td></tr>
+<tr><td><code>DPM_XFJFLB_001</code></td><td>写“状态”，实际为“交付状态”；漏“产品类型/上链状态/额度”</td><td>按实际表头补全</td></tr>
+<tr><td><code>DPM_XSDDXQ_001</code></td><td>写“购买方信息”，列表列名为“数据需求方”</td><td>统一为“数据需求方”</td></tr>
+<tr><td><code>DPM_SJSYSQDLB_001</code></td><td>用例名“数据使用申请单列表”与标题“数据使用申请列表”不一致</td><td>去掉“单”字</td></tr>
+<tr><td><code>DPM_SJSYSQDXQ_001</code></td><td>用例名“查看数据使用申请单详情”与标题“申请详情”不一致</td><td>改为“查看申请详情”</td></tr>
+</tbody></table>
+<h3>3.4 语句不通顺 / 不可执行（15 条）</h3>
+<table><thead><tr><th style="width:16%">用例编号</th><th style="width:40%">问题</th><th>建议</th></tr></thead><tbody>
+<tr><td><code>DPM_XFJFJKTS_002</code><br><span class="note">验证未选择 API 时接口调试</span></td><td>“验证未选择 API 时接口调试”缺中心词</td><td>改为“验证未选择 API 时的接口调试页呈现”</td></tr>
+<tr><td><code>DPM_SJSYSPDXQ_002</code><br><span class="note">验证详情字段完整性</span></td><td>“验证详情字段完整性”未说明对象</td><td>改为“验证审批详情字段完整性”</td></tr>
+<tr><td><code>DPM_GMDDXQ_002</code><br><span class="note">验证详情字段完整性</span></td><td>“验证详情字段完整性”未说明对象</td><td>改为“验证购买订单详情字段完整性”</td></tr>
+<tr><td><code>DPM_XFJFXQ_002</code><br><span class="note">验证详情字段完整性</span></td><td>“验证详情字段完整性”未说明对象</td><td>改为“验证需方交付详情字段完整性”</td></tr>
+<tr><td><code>DPM_GFJFXQ_002</code><br><span class="note">验证详情字段完整性</span></td><td>“验证详情字段完整性”未说明对象</td><td>改为“验证供方交付详情字段完整性”</td></tr>
+<tr><td><code>DPM_XFJFJL_002</code><br><span class="note">验证交付记录按时间排序</span></td><td>标题说“按时间排序”、预期说“倒序”，方向不一致</td><td>改为“验证交付记录按操作时间倒序展示”</td></tr>
+<tr><td><code>DPM_XFJFMX_001</code><br><span class="note">验证查看交付单明细</span></td><td>字段清单漏“交付批次”，与同表 004 不一致</td><td>补“交付批次”</td></tr>
+<tr><td><code>DPM_GFJFMX_001</code><br><span class="note">验证查看交付单明细</span></td><td>字段清单漏“交付批次”，与同表 004 不一致</td><td>补“交付批次”</td></tr>
+<tr><td><code>DPM_XFJFMX_005</code><br><span class="note">验证按交付时间范围查询交付明细</span></td><td>步骤连写无停顿：“…进入交付明细页在‘交付时间’选择…”</td><td>拆分为 1．2．3．并加逗号分隔动作</td></tr>
+<tr><td><code>DPM_GFJFMX_005</code><br><span class="note">验证按交付时间范围查询交付明细</span></td><td>步骤连写无停顿，且前置操作与验证目标混在同一句</td><td>拆分为独立步骤并编号</td></tr>
+<tr><td><code>DPM_XFJFJL_005</code><br><span class="note">验证按统计时间范围查询交付记录</span></td><td>步骤连写无停顿：“…进入交付记录页在‘统计时间’选择…”</td><td>拆分编号并加标点</td></tr>
+<tr><td><code>DPM_GFJFJL_005</code><br><span class="note">验证按统计时间范围查询交付记录</span></td><td>步骤连写，含“点击返回进入交付列表”等口语化描述</td><td>规范为“返回交付列表 → 点击‘记录’”</td></tr>
+<tr><td><code>DPM_SJSYSQDLB_003</code><br><span class="note">验证无申请单时的空数据展示</span></td><td>步骤“在无申请单数据时查看列表”无法构造前置条件</td><td>改为“筛选无匹配条件后查看空状态”</td></tr>
+<tr><td><code>DPM_SJSYSPDLB_003</code><br><span class="note">验证无待审批数据时的空数据展示</span></td><td>步骤“在无待审批数据时查看列表”无法构造前置条件</td><td>改为“筛选无匹配条件后查看空状态”</td></tr>
+<tr><td><code>DPM_GMDDLB_003</code><br><span class="note">验证无订单时的空数据展示</span></td><td>步骤“在无订单数据时查看列表”无法构造前置条件</td><td>改为“筛选无匹配条件后查看空状态”</td></tr>
+</tbody></table>
+<h3>3.5 模板占位残留（12 条）</h3>
+<p>“输入该字段的连续片段（如<b>编号中段</b>或名称关键字）”为查询用例模板，用于“产品名称”字段时“编号中段”不成立：</p>
+<table><thead><tr><th style="width:18%">用例编号</th><th style="width:30%">用例名称</th><th>命中的占位文案</th></tr></thead><tbody>
+<tr><td><code>DPM_SJSYSQDCX_007</code></td><td>验证按申请单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_SJSYSQDCX_010</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_SJSYSPDCX_007</code></td><td>验证按申请单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_SJSYSPDCX_010</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_GMDDCX_008</code></td><td>验证按订单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_GMDDCX_011</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_XSDDCX_008</code></td><td>验证按订单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_XSDDCX_011</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_XFJFCX_008</code></td><td>验证按交付单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_XFJFCX_011</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_GFJFCX_008</code></td><td>验证按交付单编号模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+<tr><td><code>DPM_GFJFCX_011</code></td><td>验证按产品名称模糊查询</td><td><code>如编号中段或名称关键字</code></td></tr>
+</tbody></table>
+<h3>3.6 合并后名称与所在小节不匹配（1 类）</h3>
+<p>按功能清单将“查询”并入“列表”后，列表小节内仍保留“验证按…查询”的用例命名，与所在小节标题不呼应。建议统一为“列表查询-按申请单编号”“列表查询-按审批状态”等形式，共 <b>116</b> 条查询用例。</p>
+<p class="note">涉及小节：数据使用申请列表、数据使用审批列表、数据购买订单列表、数据销售订单列表、数据需方交付列表、数据供方交付列表。</p>
+<h3>3.7 记录与格式规范（批量问题）</h3>
+<p>以下两项为全量性规范问题，不逐条列举，按影响面给出：</p>
+<table><thead><tr><th style="width:22%">问题</th><th style="width:14%">影响用例</th><th style="width:34%">现状</th><th>建议</th></tr></thead><tbody>
+<tr><td>期望结果句末标点不统一</td><td>232 条（99%）</td><td>期望结果句末无标点（多为句号缺失），同文内少数条目带句号</td><td>统一句末标点：完整句以“。”结尾，短语式可统一不加</td></tr>
+<tr><td>实际结果记录过于笼统</td><td>126 条（54%）</td><td>实际结果仅填写“与预期一致”，未记录实测现象，无法支撑结论追溯</td><td>补充关键实测现象（如返回条数、提示文案、状态变更结果）</td></tr>
+</tbody></table>
+<p class="note">“实际结果仅填‘与预期一致’”虽不违反格式要求，但无法支撑结论可追溯性，建议对关键用例补记实测现象；句末标点属出版规范问题，可在终稿统一处理。</p>
+</section>
+<section><h2>4 整改建议</h2>
+<table><thead><tr><th style="width:8%">优先级</th><th style="width:34%">整改项</th><th style="width:14%">涉及数量</th><th>说明</th></tr></thead><tbody>
+<tr><td><span class="tag red">P0</span></td><td>补齐多步用例的步骤编号（1．2．3．）</td><td>108 条用例</td><td>影响全部查询类与明细/记录类用例，可脚本批量处理</td></tr>
+<tr><td><span class="tag red">P0</span></td><td>按实际文案修正按钮名、状态名</td><td>23 条</td><td>“发送→发起调用”“待确认收款→已支付待确认”“已取消→订单取消”“已完成→订单完成”“驳回→拒绝”</td></tr>
+<tr><td><span class="tag amber">P1</span></td><td>删除或改写不可执行步骤</td><td>约 8 条</td><td>“点击关闭按钮”“输入使用期限”“在无数据时查看列表”等需按实际页面改写</td></tr>
+<tr><td><span class="tag amber">P1</span></td><td>统一字段名与列名</td><td>7 条</td><td>“创建时间→下单时间”“购买方信息→数据需求方”“状态→交付状态”，并补全缺失列</td></tr>
+<tr><td><span class="tag blue">P2</span></td><td>清理模板占位、统一用例命名</td><td>12 + 116 条</td><td>“如编号中段…”按字段替换；查询用例改“列表查询-按XXX”</td></tr>
+<tr><td><span class="tag blue">P2</span></td><td>统一句末标点、补记实测现象</td><td>232 / 126 条</td><td>期望结果统一以“。”结尾；关键用例补充返回条数、提示文案等实测现象</td></tr>
+</tbody></table>
+<p class="note">结论：用例整体结构完整、覆盖到位，未发现错别字；主要问题集中在“模板批量生成后未按系统实际回填”与“合并小节后编号/命名未同步”两类，建议按 P0 → P2 顺序修订后重新出版。</p>
+</section>
+<section><h2>附录 A 问题用例索引（按章节）</h2>
+<table><thead><tr><th style="width:22%">章节</th><th style="width:34%">小节</th><th style="width:12%">问题用例数</th><th>用例编号</th></tr></thead><tbody>
+<tr><td>申请审批管理</td><td>数据使用申请 / 数据使用申请列表</td><td>14</td><td><code>DPM_SJSYSQDCX_001</code>、<code>DPM_SJSYSQDCX_007</code>、<code>DPM_SJSYSQDCX_008</code>、<code>DPM_SJSYSQDCX_009</code>、<code>DPM_SJSYSQDCX_010</code>、<code>DPM_SJSYSQDCX_011</code>、<code>DPM_SJSYSQDCX_012</code>、<code>DPM_SJSYSQDCX_013</code>、<code>DPM_SJSYSQDCX_014</code>、<code>DPM_SJSYSQDCX_015</code>、<code>DPM_SJSYSQDCX_016</code>、<code>DPM_SJSYSQDLB_001</code>、<code>DPM_SJSYSQDLB_002</code>、<code>DPM_SJSYSQDLB_003</code></td></tr>
+<tr><td>申请审批管理</td><td>数据使用申请 / 申请详情</td><td>4</td><td><code>DPM_SJSYSQDXQ_001</code>、<code>DPM_SJSYSQDXQ_003</code>、<code>DPM_SJSYSQDXQ_004</code>、<code>DPM_SJSYSQDXQ_005</code></td></tr>
+<tr><td>申请审批管理</td><td>数据使用审批 / 数据使用审批列表</td><td>11</td><td><code>DPM_SJSYSPDCX_007</code>、<code>DPM_SJSYSPDCX_008</code>、<code>DPM_SJSYSPDCX_009</code>、<code>DPM_SJSYSPDCX_010</code>、<code>DPM_SJSYSPDCX_011</code>、<code>DPM_SJSYSPDCX_012</code>、<code>DPM_SJSYSPDCX_013</code>、<code>DPM_SJSYSPDCX_014</code>、<code>DPM_SJSYSPDCX_015</code>、<code>DPM_SJSYSPDCX_016</code>、<code>DPM_SJSYSPDLB_003</code></td></tr>
+<tr><td>申请审批管理</td><td>数据使用审批 / 审批详情</td><td>4</td><td><code>DPM_SJSYSPDXQ_002</code>、<code>DPM_SJSYSPDXQ_003</code>、<code>DPM_SJSYSPDXQ_004</code>、<code>DPM_SJSYSPDXQ_005</code></td></tr>
+<tr><td>订单管理</td><td>数据购买订单 / 数据购买订单列表</td><td>19</td><td><code>DPM_GMDDCX_008</code>、<code>DPM_GMDDCX_009</code>、<code>DPM_GMDDCX_010</code>、<code>DPM_GMDDCX_011</code>、<code>DPM_GMDDCX_012</code>、<code>DPM_GMDDCX_013</code>、<code>DPM_GMDDCX_014</code>、<code>DPM_GMDDCX_015</code>、<code>DPM_GMDDCX_016</code>、<code>DPM_GMDDCX_017</code>、<code>DPM_GMDDCX_018</code>、<code>DPM_GMDDCX_019</code>、<code>DPM_GMDDCX_020</code>、<code>DPM_GMDDCX_021</code>、<code>DPM_GMDDCX_022</code>、<code>DPM_GMDDCX_023</code>、<code>DPM_GMDDLB_001</code>、<code>DPM_GMDDLB_002</code>、<code>DPM_GMDDLB_003</code></td></tr>
+<tr><td>订单管理</td><td>数据购买订单 / 订单详情</td><td>4</td><td><code>DPM_GMDDXQ_002</code>、<code>DPM_GMDDXQ_003</code>、<code>DPM_GMDDXQ_004</code>、<code>DPM_GMDDXQ_005</code></td></tr>
+<tr><td>订单管理</td><td>数据销售订单 / 数据销售订单列表</td><td>16</td><td><code>DPM_XSDDCX_008</code>、<code>DPM_XSDDCX_009</code>、<code>DPM_XSDDCX_010</code>、<code>DPM_XSDDCX_011</code>、<code>DPM_XSDDCX_012</code>、<code>DPM_XSDDCX_013</code>、<code>DPM_XSDDCX_014</code>、<code>DPM_XSDDCX_015</code>、<code>DPM_XSDDCX_016</code>、<code>DPM_XSDDCX_017</code>、<code>DPM_XSDDCX_018</code>、<code>DPM_XSDDCX_019</code>、<code>DPM_XSDDCX_020</code>、<code>DPM_XSDDCX_021</code>、<code>DPM_XSDDCX_022</code>、<code>DPM_XSDDCX_023</code></td></tr>
+<tr><td>订单管理</td><td>数据销售订单 / 订单详情</td><td>4</td><td><code>DPM_XSDDXQ_001</code>、<code>DPM_XSDDXQ_003</code>、<code>DPM_XSDDXQ_004</code>、<code>DPM_XSDDXQ_005</code></td></tr>
+<tr><td>交付管理</td><td>数据需方交付 / 数据需方交付列表</td><td>13</td><td><code>DPM_XFJFCX_008</code>、<code>DPM_XFJFCX_009</code>、<code>DPM_XFJFCX_010</code>、<code>DPM_XFJFCX_011</code>、<code>DPM_XFJFCX_012</code>、<code>DPM_XFJFCX_013</code>、<code>DPM_XFJFCX_014</code>、<code>DPM_XFJFCX_015</code>、<code>DPM_XFJFCX_016</code>、<code>DPM_XFJFCX_017</code>、<code>DPM_XFJFCX_018</code>、<code>DPM_XFJFCX_019</code>、<code>DPM_XFJFLB_001</code></td></tr>
+<tr><td>交付管理</td><td>数据需方交付 / 交付详情</td><td>4</td><td><code>DPM_XFJFXQ_002</code>、<code>DPM_XFJFXQ_003</code>、<code>DPM_XFJFXQ_004</code>、<code>DPM_XFJFXQ_005</code></td></tr>
+<tr><td>交付管理</td><td>数据需方交付 / 明细</td><td>4</td><td><code>DPM_XFJFMX_001</code>、<code>DPM_XFJFMX_005</code>、<code>DPM_XFJFMX_006</code>、<code>DPM_XFJFMX_007</code></td></tr>
+<tr><td>交付管理</td><td>数据需方交付 / 记录</td><td>7</td><td><code>DPM_XFJFJL_001</code>、<code>DPM_XFJFJL_002</code>、<code>DPM_XFJFJL_005</code>、<code>DPM_XFJFJL_006</code>、<code>DPM_XFJFJL_007</code>、<code>DPM_XFJFJL_008</code>、<code>DPM_XFJFJL_009</code></td></tr>
+<tr><td>交付管理</td><td>数据供方交付 / 数据供方交付列表</td><td>12</td><td><code>DPM_GFJFCX_008</code>、<code>DPM_GFJFCX_009</code>、<code>DPM_GFJFCX_010</code>、<code>DPM_GFJFCX_011</code>、<code>DPM_GFJFCX_012</code>、<code>DPM_GFJFCX_013</code>、<code>DPM_GFJFCX_014</code>、<code>DPM_GFJFCX_015</code>、<code>DPM_GFJFCX_016</code>、<code>DPM_GFJFCX_017</code>、<code>DPM_GFJFCX_018</code>、<code>DPM_GFJFCX_019</code></td></tr>
+<tr><td>交付管理</td><td>数据供方交付 / 交付详情</td><td>5</td><td><code>DPM_GFJFXQ_002</code>、<code>DPM_GFJFXQ_003</code>、<code>DPM_GFJFXQ_004</code>、<code>DPM_GFJFXQ_005</code>、<code>DPM_GFJFXQ_006</code></td></tr>
+<tr><td>交付管理</td><td>数据供方交付 / 明细</td><td>5</td><td><code>DPM_GFJFMX_001</code>、<code>DPM_GFJFMX_005</code>、<code>DPM_GFJFMX_006</code>、<code>DPM_GFJFMX_007</code>、<code>DPM_GFJFMX_008</code></td></tr>
+<tr><td>交付管理</td><td>数据供方交付 / 记录</td><td>8</td><td><code>DPM_GFJFJL_001</code>、<code>DPM_GFJFJL_005</code>、<code>DPM_GFJFJL_006</code>、<code>DPM_GFJFJL_007</code>、<code>DPM_GFJFJL_008</code>、<code>DPM_GFJFJL_009</code>、<code>DPM_GFJFJL_010</code>、<code>DPM_GFJFJL_011</code></td></tr>
+<tr><td>申请审批管理</td><td>数据使用申请 / 下单</td><td>2</td><td><code>DPM_SJSYXD_002</code>、<code>DPM_SJSYXD_004</code></td></tr>
+<tr><td>申请审批管理</td><td>数据使用审批 / 去审批</td><td>3</td><td><code>DPM_SJSYSPDSP_002</code>、<code>DPM_SJSYSPDSP_003</code>、<code>DPM_SJSYSPDSP_004</code></td></tr>
+<tr><td>订单管理</td><td>数据购买订单 / 上传支付凭证</td><td>2</td><td><code>DPM_GMDDSCPZ_001</code>、<code>DPM_GMDDSCPZ_003</code></td></tr>
+<tr><td>订单管理</td><td>数据购买订单 / 取消订单</td><td>3</td><td><code>DPM_GMDDQXDD_001</code>、<code>DPM_GMDDQXDD_002</code>、<code>DPM_GMDDQXDD_003</code></td></tr>
+<tr><td>订单管理</td><td>数据销售订单 / 确认收款</td><td>2</td><td><code>DPM_XSDDQRK_001</code>、<code>DPM_XSDDQRK_003</code></td></tr>
+<tr><td>交付管理</td><td>数据需方交付 / 接口调试</td><td>4</td><td><code>DPM_XFJFJKTS_001</code>、<code>DPM_XFJFJKTS_002</code>、<code>DPM_XFJFJKTS_003</code>、<code>DPM_XFJFJKTS_004</code></td></tr>
+</tbody></table></section>
+<footer>本报告由用例文本自动比对 + 人工审读生成 · 2026-10-23 · 数据来源：数据要素流通平台-V520-功能测试报告-V1.0-202610223-whh.docx</footer>
+</div></body></html>
